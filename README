@@ -1,0 +1,14 @@
+Lightweight Framework, designed to work with the following folder structure for your sites.
+
+It is conveniently ignored by the repository enabling you to trigger your own git repository for just the files/folders neccessary to run the site, but also allowing you to clone the framework repository for future updates and changes to be pulled in.
+
+Your application will sit within the a application/ folder something like below.
+
+	application/
+		controller/
+		model/
+		view/
+		themes/
+		library/
+	assets/
+	
