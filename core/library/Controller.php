@@ -47,7 +47,9 @@
 				$this->load =& load_class('Loader');
 				$this->load->_fury_autoload();
 			}else{
+			
 				
+				echo 'Im trying to load the class in';
 				//$this->_fury_autoloader();
 				
 				// sync up the objects since PHP4 was working from a copy
