@@ -231,6 +231,8 @@
 			
 			}
 			
+			echo $_fury_file.' | '.$_fury_path;
+			
 			# This allows anything loaded with $this->load (views, files, etc.)
 			# to become accessible in the controller or model function that called it
 			
