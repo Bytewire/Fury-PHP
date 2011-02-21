@@ -13,6 +13,8 @@
 	// =========== 
 	
 	# Set some defines and call our bootstrap
+	echo $_SERVER['HTTP_HOST'];
+	
 		
 	switch($_SERVER['HTTP_HOST']){
 		case "localhost:8888": 
@@ -48,7 +50,7 @@
 	# Require the bootstrap file
 	echo 'here';
 	
-	echo ROOT  . 'core' . 'bootstrap.php';
+	echo 'core' . 'bootstrap.php';
 		 
 	require_once (ROOT . DS . 'core' . DS . 'bootstrap.php');
 	echo 'here';
