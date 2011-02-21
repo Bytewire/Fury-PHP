@@ -30,6 +30,8 @@
 			define('SYS', 'core/');
 	}
 	
+	echo get_include_path();
+	
 	echo ROOT;
 	
 	# True error reporting should be set here, to find problems right from the route.	
