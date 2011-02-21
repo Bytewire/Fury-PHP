@@ -258,7 +258,7 @@
 					
 			
 			# Include the path
-			
+			echo $_fury_path.'<br>';
 						
 			include($_fury_path);
 			
