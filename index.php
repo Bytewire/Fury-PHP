@@ -26,7 +26,7 @@
 			define( 'DEVELOPMENT_ENVIRONMENT' , false);
 			define('EXT', '.php');
 			define('DS', DIRECTORY_SEPARATOR);
-			define('ROOT', '');
+			define('ROOT', dirname(dirname(__FILE__)).'/http/');
 			define('SYS', 'core/');
 	}
 	
