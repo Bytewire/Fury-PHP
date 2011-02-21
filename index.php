@@ -30,6 +30,8 @@
 			define('SYS', 'core/');
 	}
 	
+	echo ROOT;
+	
 	# True error reporting should be set here, to find problems right from the route.	
 	
 	if (DEVELOPMENT_ENVIRONMENT == TRUE) {
