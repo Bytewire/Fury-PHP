@@ -26,11 +26,9 @@
 			define( 'DEVELOPMENT_ENVIRONMENT' , false);
 			define('EXT', '.php');
 			define('DS', DIRECTORY_SEPARATOR);
-			define('ROOT', '/');
+			define('ROOT', '');
 			define('SYS', 'core/');
 	}
-	
-	echo get_include_path();
 	
 	echo ROOT;
 	
