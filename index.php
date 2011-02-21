@@ -13,6 +13,9 @@
 	// =========== 
 	
 	# Set some defines and call our bootstrap
+	
+	print_r($_SERVER);
+	
 	echo $_SERVER['HTTP_HOST'];
 	
 		
