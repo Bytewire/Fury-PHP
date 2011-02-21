@@ -140,8 +140,7 @@
 		// =========== 
 		
 		function view($view, $vars = array(), $return = FALSE){
-			echo 'TRYING TO LOAD '.$view.'<Br>';
-			return $this->_fury_load(array('_fury_view' => $view, '_fury_vars' => $this->_fury_object_to_array($vars), '_fury_return' => $return));
+ 			return $this->_fury_load(array('_fury_view' => $view, '_fury_vars' => $this->_fury_object_to_array($vars), '_fury_return' => $return));
 		}
 		
 		
@@ -231,9 +230,7 @@
 				$_fury_file = end($_fury_x);
 			
 			}
-			
-			echo $_fury_file.' | '.$_fury_path;
-			
+						
 			# This allows anything loaded with $this->load (views, files, etc.)
 			# to become accessible in the controller or model function that called it
 			
@@ -258,31 +255,31 @@
 			}
 			
 			extract($this->_fury_cached_vars);
-					
-			
+								
 			# Include the path
-			echo $_fury_path.'<br>';
 						
 			include($_fury_path);
 			
-			if ($_fury_return === TRUE){		
-				$buffer = ob_get_contents();
-				@ob_end_clean();
-				return $buffer;
+			
+			if ($_fury_return === TRUE){
+				//$buffer = ob_get_contents();
+				//@ob_end_clean();
+				//return $buffer;
 			}
 			
 			# Flush the buffer
 			# In order to permit views to within the other views 
 			# we need to flush the content back oyt whenever we are beyond the first level.
+		
 			
 			if(ob_get_level() > $this->_fury_ob_level + 1){
-				ob_end_flush();
+				//ob_end_flush();
 			}else{
-				global $OUT;
-				$OUT->append_output(ob_get_contents());
-				@ob_end_clean();
+				//global $OUT;
+				//$OUT->append_output(ob_get_contents());
+				//@ob_end_clean();
 			}
-				
+
 		
 		}	
 		

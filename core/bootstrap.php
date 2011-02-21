@@ -3,10 +3,9 @@
 	# This is the file which is responsible for routing out all of our requests.
 	
 	# Lets have our nice friendly config file do some work.
-	echo ROOT . 'application' .DS . 'config' . DS . 'config' .EXT;
-/*
+
 	require_once(ROOT . 'application' .DS . 'config' . DS . 'config' .EXT);
-		
+					
 	// =========== 
 	// ! Show some errors out of our framework   
 	// =========== 
@@ -123,7 +122,7 @@
 	}
 	
 	# Lets include the correct controller
-	
+		
 	include(APP_PATH . 'controller' . DS .$ROUTE->fetch_directory().$ROUTE->fetch_class().EXT);
 	
 	# Now lets perform the requested actions.
@@ -166,6 +165,9 @@
 		call_user_func_array(array(&$FURY, $method), array_slice($URI->rsegments, 2));
 		
 	}
-*/
+	
+	# Throw the final output to the browser.
+	
+	$OUT->_display();
 	
 	

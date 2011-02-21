@@ -21,6 +21,8 @@
 				// build the URI string from the zero index of the $_GET array.
 				// This avoids having to deal with $_SERVER variables, which
 				// can be unreliable in some environments
+				print_r($_GET);
+				
 				if (is_array($_GET) && count($_GET) == 1 && trim(key($_GET), '/') != ''){
 					$this->uri_string = key($_GET);
 					return;

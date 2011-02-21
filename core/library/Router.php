@@ -45,7 +45,7 @@
 	 		
 	 		# Fetch the entire URI String.
 	 		$this->uri->_fetch_uri_string();
-	 		 		
+	 			 			 		 		
 			# Is there a URI string? 
 			# If not, the default controller specified 
 			# in the "routes" file will be shown.

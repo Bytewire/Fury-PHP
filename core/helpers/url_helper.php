@@ -34,8 +34,8 @@ if ( ! function_exists('base_url'))
 {
 	function base_url()
 	{
-		$CI =& get_instance();
-		return $CI->config->slash_item('base_url');
+		$FURY =& get_instance();
+		return $FURY->config->slash_item('base_url');
 	}
 }
 

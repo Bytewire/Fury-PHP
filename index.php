@@ -13,12 +13,7 @@
 	// =========== 
 	
 	# Set some defines and call our bootstrap
-	
-	print_r($_SERVER);
-	
-	echo $_SERVER['HTTP_HOST'];
-	
-		
+			
 	switch($_SERVER['HTTP_HOST']){
 		case "localhost:8888": 
 			define('DEVELOPMENT_ENVIRONMENT' , true);
@@ -35,25 +30,21 @@
 			define('SYS', 'core/');
 	}
 	
-	echo ROOT;
 	
 	# True error reporting should be set here, to find problems right from the route.	
 	
 	if (DEVELOPMENT_ENVIRONMENT == TRUE) {
 		error_reporting(E_ALL);
-		ini_set('display_errors', '1');
+		ini_set('display_errors', 'On');
 	} else {
 		error_reporting(E_ALL);
-		ini_set('display_errors', '1');
+		ini_set('display_errors', 'On');
 		//ini_set('display_errors','Off');
-		//ini_set('log_errors', 'On');
-/* 		/ini_set('error_log', ROOT.DS.'tmp'.DS.'logs'.DS.'error.log'); */
+		ini_set('log_errors', 'On');
+		ini_set('error_log', ROOT.DS.'tmp'.DS.'logs'.DS.'error.log');
 	}		
 	
-	# Require the bootstrap file
-	echo 'here';
+	# Require the bootstrap file		 
 	
-	echo 'core' . 'bootstrap.php';
-		 
 	require_once (ROOT . DS . 'core' . DS . 'bootstrap.php');
-	echo 'here';
+	
