@@ -1,13 +1,5 @@
 <?php
 	
-	# Set some defines and call our bootstrap
-	
-	define('EXT', '.php');
-	define('DS', DIRECTORY_SEPARATOR);
-	define('ROOT', dirname(dirname(__FILE__)).'/http/');
-	define('SYS', 'core/');
-	
-		
 	// =========== 
 	// ! Development environment globals   
 	// =========== 
@@ -19,10 +11,23 @@
 	// Create better more seamless approach to local and remote coding. 
 	// Could also be changed to be anything you like but localhost works well for us here.  
 	// =========== 
+	
+	# Set some defines and call our bootstrap
 		
 	switch($_SERVER['HTTP_HOST']){
-		case "localhost:8888": define( 'DEVELOPMENT_ENVIRONMENT' , true);break;
-		default: define( 'DEVELOPMENT_ENVIRONMENT' , false);
+		case "localhost:8888": 
+			define( 'DEVELOPMENT_ENVIRONMENT' , true);
+			define('EXT', '.php');
+			define('DS', DIRECTORY_SEPARATOR);
+			define('ROOT', dirname(dirname(__FILE__)).'/scshop/');
+			define('SYS', 'core/');
+			break;
+		default: 
+			define( 'DEVELOPMENT_ENVIRONMENT' , false);
+			define('EXT', '.php');
+			define('DS', DIRECTORY_SEPARATOR);
+			define('ROOT', dirname(dirname(__FILE__)).'/');
+			define('SYS', 'core/');
 	}
 	
 	# True error reporting should be set here, to find problems right from the route.	
