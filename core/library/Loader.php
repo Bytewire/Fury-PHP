@@ -140,6 +140,7 @@
 		// =========== 
 		
 		function view($view, $vars = array(), $return = FALSE){
+			echo 'TRYING TO LOAD '.$view.'<Br>';
 			return $this->_fury_load(array('_fury_view' => $view, '_fury_vars' => $this->_fury_object_to_array($vars), '_fury_return' => $return));
 		}
 		
