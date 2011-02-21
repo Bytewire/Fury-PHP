@@ -12,7 +12,18 @@
 	// ! Development environment globals   
 	// =========== 
 	
-	define( 'DEVELOPMENT_ENVIRONMENT' , true);
+	// Decide whether in development mode or not.
+	
+	// =========== 
+	// ! Use the test variables to decide on config settings.
+	// Create better more seamless approach to local and remote coding. 
+	// Could also be changed to be anything you like but localhost works well for us here.  
+	// =========== 
+		
+	switch($_SERVER['HTTP_HOST']){
+		case "localhost:8888": define( 'DEVELOPMENT_ENVIRONMENT' , true);break;
+		default: define( 'DEVELOPMENT_ENVIRONMENT' , false);
+	}
 	
 	# True error reporting should be set here, to find problems right from the route.	
 	
