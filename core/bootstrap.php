@@ -3,7 +3,7 @@
 	# This is the file which is responsible for routing out all of our requests.
 	
 	# Lets have our nice friendly config file do some work.
-	
+	echo ROOT . 'application' .DS . 'config' . DS . 'config' .EXT;
 	require_once(ROOT . 'application' .DS . 'config' . DS . 'config' .EXT);
 		
 	// =========== 
