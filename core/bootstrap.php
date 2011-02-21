@@ -4,6 +4,7 @@
 	
 	# Lets have our nice friendly config file do some work.
 	echo ROOT . 'application' .DS . 'config' . DS . 'config' .EXT;
+/*
 	require_once(ROOT . 'application' .DS . 'config' . DS . 'config' .EXT);
 		
 	// =========== 
@@ -165,5 +166,6 @@
 		call_user_func_array(array(&$FURY, $method), array_slice($URI->rsegments, 2));
 		
 	}
+*/
 	
 	
