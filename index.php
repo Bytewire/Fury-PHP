@@ -48,7 +48,7 @@
 	# Require the bootstrap file
 	echo 'here';
 	
-	echo ROOT . DS . 'core' . DS . 'bootstrap.php';
+	echo ROOT  . 'core' . 'bootstrap.php';
 		 
 	require_once (ROOT . DS . 'core' . DS . 'bootstrap.php');
 	echo 'here';
