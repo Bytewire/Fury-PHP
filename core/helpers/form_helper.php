@@ -87,6 +87,50 @@
 	}
 	
 	// =========== 
+	// ! Set a radio   
+	// =========== 
+	
+	if ( ! function_exists('set_radio')){
+		function set_radio($field = '', $value = '', $default = FALSE){
+			$OBJ =& _get_validation_object();
+	
+			if ($OBJ === FALSE){
+				if ( ! isset($_POST[$field])){
+					if (count($_POST) === 0 AND $default == TRUE){
+						return ' checked="checked"';
+					}
+					return '';
+				}
+	
+				$field = $_POST[$field];
+				
+				if (is_array($field)){
+					if ( ! in_array($value, $field)){
+						return '';
+					}
+				}
+				else{
+					if (($field == '' OR $value == '') OR ($field != $value)){
+						return '';
+					}
+				}
+	
+				return ' checked="checked"';
+			}
+	
+			return $OBJ->set_radio($field, $value, $default);
+		}
+	}	
+	
+	// =========== 
+	// ! site url   
+	// ===========
+	if ( ! function_exists('site_url')){
+		function site_url($attributes, $formtag = FALSE){
+		}
+	}	 
+	
+	// =========== 
 	// ! Converts all attributes passed in an array to a string.   
 	// =========== 
 	
@@ -134,6 +178,42 @@
 	}
 	
 	// =========== 
+	// ! Create a select box.   
+	// =========== 
+		
+	if ( ! function_exists('set_select')){
+		function set_select($field = '', $value = '', $default = FALSE){
+			$OBJ =& _get_validation_object();
+	
+			if ($OBJ === FALSE){
+				if ( ! isset($_POST[$field])){
+					if (count($_POST) === 0 AND $default == TRUE){
+						return ' selected="selected"';
+					}
+					return '';
+				}
+	
+				$field = $_POST[$field];
+	
+				if (is_array($field)){
+					if ( ! in_array($value, $field)){
+						return '';
+					}
+				}else{
+					if (($field == '' OR $value == '') OR ($field != $value)){
+						return '';
+					}
+				}
+	
+				return ' selected="selected"';
+			}
+	
+			return $OBJ->set_select($field, $value, $default);
+		}
+	}
+	
+	
+	// =========== 
 	// ! Parse the form attributes
 	// =========== 	
 
@@ -165,3 +245,70 @@
 			return $att;
 		}
 	}
+	
+	// =========== 
+	// ! Prep form inputs   
+	// =========== 
+	
+	if ( ! function_exists('form_prep')){
+		function form_prep($str = '', $field_name = ''){
+			static $prepped_fields = array();
+			
+			// if the field name is an array we do this recursively
+			if (is_array($str)){
+				foreach ($str as $key => $val){
+					$str[$key] = form_prep($val);
+				}
+	
+				return $str;
+			}
+	
+			if ($str === ''){
+				return '';
+			}
+	
+			// we've already prepped a field with this name
+			// @todo need to figure out a way to namespace this so
+			// that we know the *exact* field and not just one with
+			// the same name
+			if (isset($prepped_fields[$field_name])){
+				return $str;
+			}
+			
+			$str = htmlspecialchars($str);
+	
+			// In case htmlspecialchars misses these.
+			$str = str_replace(array("'", '"'), array("&#39;", "&quot;"), $str);
+	
+			if ($field_name != ''){
+				$prepped_fields[$field_name] = $str;
+			}
+			
+			return $str;
+		}
+	}	
+	
+	// =========== 
+	// ! Get a validation object   
+	// =========== 
+	
+	if ( ! function_exists('_get_validation_object')){
+		function &_get_validation_object(){
+			$FURY =& get_instance();
+	
+			// We set this as a variable since we're returning by reference
+			$return = FALSE;
+	
+			if ( ! isset($FURY->load->_ci_classes) OR  ! isset($FURY->load->_ci_classes['form_validation'])){
+				return $return;
+			}
+	
+			$object = $FURY->load->_ci_classes['form_validation'];
+	
+			if ( ! isset($FURY->$object) OR ! is_object($FURY->$object)){
+				return $return;
+			}
+	
+			return $FURY->$object;
+		}
+	}	

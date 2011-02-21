@@ -14,7 +14,7 @@
 	const SESSION_STARTED = TRUE;
 	const SESSION_ENDED = FALSE;
 	
-	private $sessionState = self::SESSION_NOT_STARTED;
+	private $sessionState = self::SESSION_ENDED;
 	
 		function __construct(){
 			$this->sessionState = session_start();
@@ -54,7 +54,7 @@
 		// =========== 
 		
 	    function _isset( $name ){
-	        return isset($_SESSION[$name]);
+	        return (isset($_SESSION[$name])) ? TRUE : FALSE;
 	    }
 	   	
 	   	// =========== 

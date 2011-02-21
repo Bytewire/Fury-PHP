@@ -5,6 +5,7 @@
 	class FURY_Validation{
 		
 		var $FURY;
+		var $_fury_errors = 0;
 		var $_fury_error_string = '';
 		var $_fury_error_array = array();
 	
@@ -364,6 +365,41 @@
 			return (bool) ! preg_match('/[^a-zA-Z0-9\/\+=]/', $str);
 		}		
 		
+		// =========== 
+		// ! Is errors test   
+		// =========== 
+		
+		function isErrors(){
+			return ($this->_fury_errors>0) ? TRUE : FALSE;
+		}
+		
+		// =========== 
+		// ! Add errors to an array string contained here   
+		// =========== 
+		
+		function addError($error){
+			$this->_fury_errors++;
+			$this->_fury_error_array[] = $error;
+		}
+		
+		// =========== 
+		// ! Display errors   
+		// =========== 
+		
+		function displayErrors(){
+		$ret = '<div class="form_errors">';
+		$ret.= '<ul>';
+			if($this->_fury_errors>0){
+				foreach($this->_fury_error_array as $val):
+					$ret.=  '<li>'.$val.'</li>';
+				endforeach;
+			}
+		$ret.=  '</ul>';
+		$ret.=  '</div>';
+		
+		return $ret;
+		
+		}
 		
 		// =========== 
 		// ! Return a single error   
