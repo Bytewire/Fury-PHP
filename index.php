@@ -4,7 +4,7 @@
 	
 	define('EXT', '.php');
 	define('DS', DIRECTORY_SEPARATOR);
-	define('ROOT', dirname(dirname(__FILE__)).'/scshop/');
+	define('ROOT', dirname(dirname(__FILE__)).'/http/');
 	define('SYS', 'core/');
 	
 		
@@ -27,7 +27,7 @@
 	
 	# True error reporting should be set here, to find problems right from the route.	
 	
-	if (DEVELOPMENT_ENVIRONMENT == true) {
+	if (DEVELOPMENT_ENVIRONMENT == TRUE) {
 		error_reporting(E_ALL);
 		ini_set('display_errors','On');
 	} else {
