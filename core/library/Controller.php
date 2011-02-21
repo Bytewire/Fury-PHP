@@ -43,6 +43,7 @@
 			// In PHP 5 the Loader class is run as a discreet
 			// class.  In PHP 4 it extends the Controller
 			if (floor(phpversion()) >= 5){
+				echo 'Im trying to load the class in';
 				$this->load =& load_class('Loader');
 				$this->load->_fury_autoload();
 			}else{
