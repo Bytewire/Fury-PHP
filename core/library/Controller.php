@@ -19,6 +19,7 @@
 	class Controller extends FURY_Base{
 	
 		function Controller(){
+			echo 'hey hey i got made';
 			parent::FURY_Base();
 			$this->_fury_initialize();
 		}
