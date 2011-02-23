@@ -67,6 +67,7 @@
 		 	return $array;
 		 }
 		 
+		 
 		 # Returns the mysql_object as an object
 		 function as_object(){
 		 	return mysql_fetch_object($this->current_query);
