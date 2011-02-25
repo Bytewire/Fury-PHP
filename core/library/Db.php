@@ -51,7 +51,7 @@
 		 }
 		 
 		 function query($query){
-		 	$this->current_query = mysql_query($query);
+		 	$this->current_query = mysql_query($query) or die(mysql_error());
 		 	return $this;
 		 }
 		 

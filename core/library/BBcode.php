@@ -24,8 +24,8 @@
 		function bbcode_format($str){
   
 	  	//look for a [user] element
-	  	$str = preg_replace_callback("/\[user\=(.*?)\]/is","fetch_user_id",$str);
-	  	$str = preg_replace_callback("/\[crew\=(.*?)\]/is","fetch_crew_id",$str);
+	  	$str = preg_replace_callback("/\[user\=(.*?)\]/is","self::fetch_user_id",$str);
+	  	$str = preg_replace_callback("/\[crew\=(.*?)\]/is","self::fetch_crew_id",$str);
 	    
 	    $simple_search = array(  
 	                //added line break

@@ -28,7 +28,14 @@
 			$this->core =& load_class('Core');
 			$this->load =& load_class('Loader');
 			
-			if($zendpath = $this->core->get_config_item('zend_local_include')){
+			// Check the file paths of the includes.
+			if(file_exists($this->core->get_config_item('zend_local_path'))){
+				$zendpath = $this->core->get_config_item('zend_local_path');
+			}elseif(file_exists($this->core->get_config_item('zend_remote_path'))){
+				$zendpath = $this->core->get_config_item('zend_remote_path');
+			}
+			
+			if($zendpath){
 				
 				set_include_path(
 				get_include_path().PATH_SEPARATOR.$zendpath);
@@ -134,7 +141,7 @@
 		}
 		
 		function load_mail_library(){
-		
+			
 			$this->load->library($this->library);
 		
 		}
@@ -179,9 +186,8 @@
 			
 			// Check for certain fields before sending
 			if($this->checkFields()){
-
 				# Send to another send function to incorporate.
-				switch($this->library){
+				switch(strtolower($this->library)){
 					case "postmark_zend": $this->postmark_send(); break;
 				}	
 				
@@ -198,8 +204,8 @@
 		    $mail->setSubject( $this->_subject );
 		    $mail->setBodyText( $this->_plain_text );
 		    $mail->setBodyHtml( $this->_html_body );
-		    $mail->send();		
-		    
+		    $mail->send();
+		    		    
 		}
 		
 		

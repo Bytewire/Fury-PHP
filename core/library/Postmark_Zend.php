@@ -22,7 +22,7 @@
 				
 			$this->core =& load_class('Core');
 			
-			$apiKey = $this->core->get_config_item('postmark_zend','apikey');
+			$apiKey = $this->core->get_config_item('Postmark_Zend','apikey');
 			$_e_from = $this->core->get_config_item('webmaster_email');
 									
 			
