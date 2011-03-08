@@ -33,6 +33,8 @@
 			
 			$this->setPageDefaults($locale);
 			
+			echo 'Trying to set the cookie';
+			
 			// Set a cookie to record this.
 			setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('site_url'), 1);
 		}
