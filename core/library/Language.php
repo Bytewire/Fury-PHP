@@ -8,6 +8,7 @@
 			
 			$this->core =& load_class("Core");
 			$this->checkLanguage();
+			session_start();
 				
 		}
 		

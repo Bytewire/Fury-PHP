@@ -20,7 +20,7 @@
 		function __construct(){
 			
 			// Start the session
-			$this->sessionState = session_start();
+			$this->sessionState = @session_start();
 			
 					
 			// Delete session displaydata marked old.
