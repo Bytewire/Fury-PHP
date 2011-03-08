@@ -9,6 +9,7 @@
 			$this->core =& load_class("Core");
 			$this->checkLanguage();
 			session_start();
+			echo 'I got called';
 				
 		}
 		
@@ -28,6 +29,10 @@
 			}
 			
 		} 
+		
+		function destroyCookie(){
+			
+		}
 		
 		function setDefault(){
 			$locale = $this->core->get_config_item('default_language');
