@@ -35,10 +35,9 @@
 			$this->setPageDefaults($locale);
 												
 			// Set a cookie to record this.
-			if(setcookie("locale", $locale, time()+(86400*365), "/", $this->core->get_config_item('base_url'))){
-				
-				
-			}
+			setcookie("locale", $locale, time()+(86400*365), "/", $this->core->get_config_item('base_url'));
+			print_r($_COOKIE['locale']);
+			
 		}
 		
 		function setLanguage($locale){
