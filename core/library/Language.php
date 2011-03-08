@@ -14,7 +14,7 @@
 		function checkLanguage(){
 			
 			if($_COOKIE['locale']){
-				if(in_array($_COOKIE['locale'],$this->core->get_config_item('supported_languages')){
+				if(in_array($_COOKIE['locale'],$this->core->get_config_item('supported_languages'))){
 					// if allowed language set it.
 					$locale = $_COOKIE['locale'];
 					$this->setPageDefaults($locale);
