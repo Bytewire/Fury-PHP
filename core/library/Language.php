@@ -37,7 +37,6 @@
 			// Set a cookie to record this.
 			if(setcookie("locale", $locale, time()+(86400*365), "/", $this->core->get_config_item('base_url'))){
 				
-				echo 'Cookie successfully set';
 				
 			}
 		}
