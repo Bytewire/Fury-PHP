@@ -36,7 +36,7 @@
 			echo 'Trying to set the cookie';
 			
 			// Set a cookie to record this.
-			setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('site_url'), 1);
+			setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('base_url'), 1);
 		}
 		
 		function setLanguage($locale){
@@ -45,7 +45,7 @@
 			if(in_array($locale,$this->core->get_config_items('supported_languages'))){
 				
 				// Overwrite cookie.
-				setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('site_url'), 1);
+				setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('base_url'), 1);
 				
 				$this->setPageDefaults();
 			}	
