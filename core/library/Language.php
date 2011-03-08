@@ -32,7 +32,9 @@
 			$locale = $this->core->get_config_item('default_language');
 			
 			$this->setPageDefaults($locale);
-						
+			
+			echo 'Im going to try and set the cookie to this: '.$locale;
+									
 			// Set a cookie to record this.
 			setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('base_url'), 1);
 		}
