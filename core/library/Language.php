@@ -8,7 +8,6 @@
 			
 			$this->core =& load_class("Core");
 			$this->checkLanguage();
-			session_start();
 				
 		}
 		
@@ -28,12 +27,9 @@
 			}
 			
 		} 
-		
-		function destroyCookie(){
-			
-		}
-		
+				
 		function setDefault(){
+			
 			$locale = $this->core->get_config_item('default_language');
 			
 			// Set a cookie to record this.
@@ -62,5 +58,10 @@
 			bindtextdomain("messages", $this->core->get_config_item('language_directory'));
 			textdomain("messages");
 		}
+		
+		function destroyCookie(){
+			
+		}
+		
 			
 	}
