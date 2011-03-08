@@ -13,7 +13,7 @@
 		
 		function checkLanguage(){
 			
-			if($_COOKIE['locale']){
+			if(isset($_COOKIE['locale'])){
 				if(in_array($_COOKIE['locale'],$this->core->get_config_item('supported_languages'))){
 					// if allowed language set it.
 					$locale = $_COOKIE['locale'];
@@ -32,9 +32,7 @@
 			$locale = $this->core->get_config_item('default_language');
 			
 			$this->setPageDefaults($locale);
-			
-			echo 'Trying to set the cookie';
-			
+						
 			// Set a cookie to record this.
 			setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('base_url'), 1);
 		}
