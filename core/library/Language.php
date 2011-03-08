@@ -40,7 +40,7 @@
 		function setLanguage($locale){
 			
 			// override old cookie and set new one.
-			if(in_array($locale,$this->core->get_config_items('supported_languages')){
+			if(in_array($locale,$this->core->get_config_items('supported_languages'))){
 				
 				// Overwrite cookie.
 				setcookie("locale", $locale, (time()+(86400*365)), "/", ".".$this->core->get_config_item('site_url'), 1);
