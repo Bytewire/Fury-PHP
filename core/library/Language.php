@@ -35,7 +35,7 @@
 			// Set a cookie to record this.
 			setcookie("locale", $locale, time()+(86400*365) , "/boardwalk/", $this->core->get_config_item('local_url'));
 			
-			print_r($_COOKIE);
+			print_r($_COOKIE['locale']);
 			
 			$this->setPageDefaults($locale);
 			
