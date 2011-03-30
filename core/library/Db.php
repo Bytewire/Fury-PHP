@@ -44,7 +44,7 @@
 		 
 		 function selectDb($database){	
 		 	if(!$db = mysql_select_db($database)){
-		 		show_error("Unable to select the database, you provided.");
+		 		show_error("Unable to select database: $database");
 		 		return false;
 		 	}
 		 	return true;
