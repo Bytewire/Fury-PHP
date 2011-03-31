@@ -19,7 +19,7 @@
 			define('DEVELOPMENT_ENVIRONMENT' , true);
 			define('EXT', '.php');
 			define('DS', DIRECTORY_SEPARATOR);
-			define('ROOT', dirname(dirname(__FILE__)).'/scshop/');
+			define('ROOT', dirname(dirname(__FILE__)).'/streetcrimeshop/');
 			define('SYS', 'core/');
 			break;
 		default: 
