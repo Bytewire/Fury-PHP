@@ -34,9 +34,7 @@
 			
 			// Set a cookie to record this.
 			setcookie("locale", $locale, time()+(86400*365));
-			
-			print_r($_COOKIE['locale']);
-			
+						
 			$this->setPageDefaults($locale);
 			
 		}
