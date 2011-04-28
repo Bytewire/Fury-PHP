@@ -121,7 +121,7 @@
 			$model = ucfirst($model);
 			
 			$FURY->$name = new $model();
-			$FURY->$name->_assign_libraries();
+			//$FURY->$name->_assign_libraries();
 			
 			$this->_fury_models[] = $name;
 		

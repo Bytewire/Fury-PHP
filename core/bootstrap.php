@@ -136,7 +136,7 @@
 		OR strncmp($method, '_', 1) == 0
 		OR in_array(strtolower($method), array_map('strtolower', get_class_methods('Controller')))
 		)
-	{
+	{	
 		show_404("{$class}/{$method}");
 	}
 	
@@ -153,7 +153,6 @@
 			
 			# Okay so we know the URI might not be valid but 
 			# lets check if the index is expecting extra params
-			
 			show_404("{$class}/{$method}");
 					
 			

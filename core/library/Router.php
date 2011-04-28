@@ -181,11 +181,12 @@
 	
 		function _validate_request($segments)
 		{
+				
 			if (file_exists(APP_PATH.'controller/'.$segments[0].EXT))
-			{
+			{	
 				return $segments;
 			}
-	
+				
 			if (is_dir(APP_PATH.'controller/'.$segments[0]))
 			{
 				$this->set_directory($segments[0]);
