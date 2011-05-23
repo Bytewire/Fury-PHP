@@ -21,7 +21,7 @@
 		 function connectDefault(){
 		 
 		 	if($default = $this->core->get_config_item('default','database')){
-		 	
+		 			 	
 		 		if($default['user'] && $default['password'] && $default['host']){
 		 	
 		 			$this->connections['default'] = mysql_connect($default['host'],$default['user'],$default['password']);
@@ -31,7 +31,7 @@
 		 				$this->selectDb($default['database']);
 		 				
 		 			}else{
-		 				show_error("Problem connecting to default database, please check your credentials over before trying again!");
+		 				show_error("Problem connecting to default database, please check your credentials over before trying again!".mysql_error());
 		 			}
 		 		
 		 		}else{
@@ -53,6 +53,10 @@
 		 function query($query){
 		 	$this->current_query = mysql_query($query) or die(mysql_error());
 		 	return $this;
+		 }
+		 
+		 function num_rows(){
+		 	return mysql_num_rows($this->current_query);
 		 }
 		 
 		 function row(){
@@ -128,6 +132,38 @@
 		    
 		    $this->query($insertstr);
 		}
+		
+		
+		// =========== 
+		// ! Get updates to the player.
+		// =========== 	
+		
+		function updatedata($id,$fields){
+			if($id && $fields){
+				$char_table = $this->core->get_config_item('character_table');
+				$this->query("update $char_table set $fields where id='$id'");
+				return true;
+			}
+			return false;
+		}
+		
+		// =========== 
+		// ! Get updates to the player.
+		// =========== 	
+		
+		function getuser($id,$fields='*',$use_reg_table=false){
+			if($id && $fields){
+				$char_table = $this->core->get_config_item('character_table');
+				$user_table = $this->core->get_config_item('user_table');
+				
+				if($use_reg_table){
+					return $this->query("select $fields from $user_table where id='$id'")->as_assoc();
+				}else{
+					return $this->query("select $fields from $char_table where userid='$id'")->as_assoc();
+				}
+			}
+			return false;
+		}		
 
 		// =========== 
 		// ! Detect whether or not global magicquotes are available   
@@ -147,6 +183,7 @@
 			return $value;
 		
 		}
+		
 	
 	}
 		

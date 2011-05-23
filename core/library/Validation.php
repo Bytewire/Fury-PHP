@@ -71,6 +71,17 @@
 		}
 		
 		// =========== 
+		// ! check the entered string is and only contains valid username stuff
+		// ===========		
+		
+		function valid_username($str){
+			if(preg_match("/^[a-zA-Z0-9_|-\s]+$/", $str)){
+				return true;
+			}
+			return false;
+		}
+		
+		// =========== 
 		// ! function character name checker   
 		// check characters, profanity, filter, 3-15 characters long.
 		// =========== 
