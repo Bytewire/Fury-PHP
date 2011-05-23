@@ -14,21 +14,21 @@
 	
 	# Set some defines and call our bootstrap
 			
-	switch($_SERVER['HTTP_HOST']){
-		case "localhost:8888": 
-			define('DEVELOPMENT_ENVIRONMENT' , true);
-			define('EXT', '.php');
-			define('DS', DIRECTORY_SEPARATOR);
-			define('ROOT', dirname(dirname(__FILE__)).'/client/');
-			define('SYS', 'core/');
-			break;
-		default: 
-			define('DEVELOPMENT_ENVIRONMENT' , false);
-			define('EXT', '.php');
-			define('DS', DIRECTORY_SEPARATOR);
-			define('ROOT', dirname(dirname(__FILE__)).'/http/');
-			define('SYS', 'core/');
-	}
+    switch($_SERVER['HTTP_HOST']){
+        case "localhost:8888": 
+            define('DEVELOPMENT_ENVIRONMENT' , true);
+            define('EXT', '.php');
+            define('DS', DIRECTORY_SEPARATOR);
+            define('ROOT', dirname(dirname(__FILE__)).'/boardwalk/');
+            define('SYS', 'core/');
+            break;
+        default: 
+            define('DEVELOPMENT_ENVIRONMENT' , false);
+            define('EXT', '.php');
+            define('DS', DIRECTORY_SEPARATOR);
+            define('ROOT', dirname(dirname(__FILE__)).'/http/');
+            define('SYS', 'core/');
+    }
 	
 	
 	# True error reporting should be set here, to find problems right from the route.	
