@@ -16,7 +16,7 @@ if ( ! function_exists('site_url'))
 	function site_url($uri = '')
 	{
 		$FURY =& get_instance();
-		return $FURY->config->site_url($uri);
+		return $FURY->core->site_url($uri);
 	}
 }
 
@@ -35,7 +35,7 @@ if ( ! function_exists('base_url'))
 	function base_url()
 	{
 		$FURY =& get_instance();
-		return $FURY->config->slash_item('base_url');
+		return $FURY->core->slash_item('base_url');
 	}
 }
 
@@ -54,8 +54,8 @@ if ( ! function_exists('current_url'))
 {
 	function current_url()
 	{
-		$CI =& get_instance();
-		return $CI->config->site_url($CI->uri->uri_string());
+		$FURY =& get_instance();
+		return $FURY->core->site_url($FURY->uri->uri_string());
 	}
 }
 
@@ -72,8 +72,8 @@ if ( ! function_exists('uri_string'))
 {
 	function uri_string()
 	{
-		$CI =& get_instance();
-		return $CI->uri->uri_string();
+		$FURY =& get_instance();
+		return $FURY->uri->uri_string();
 	}
 }
 
@@ -91,8 +91,8 @@ if ( ! function_exists('index_page'))
 {
 	function index_page()
 	{
-		$CI =& get_instance();
-		return $CI->config->item('index_page');
+		$FURY =& get_instance();
+		return $FURY->core->get_config_item('index_page');
 	}
 }
 
@@ -116,7 +116,7 @@ if ( ! function_exists('anchor'))
 		$title = (string) $title;
 
 		if ( ! is_array($uri))
-		{
+		{	
 			$site_url = ( ! preg_match('!^\w+://! i', $uri)) ? site_url($uri) : $uri;
 		}
 		else
@@ -126,7 +126,7 @@ if ( ! function_exists('anchor'))
 
 		if ($title == '')
 		{
-			$title = $site_url;
+			//$title = $site_url;
 		}
 
 		if ($attributes != '')
