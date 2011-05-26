@@ -28,7 +28,7 @@
 			endforeach;
 			
 			$this->error_db = $this->core->get_config_item('error_db','logging');
-			$this->user_error_db = $this->core->get_config_item('user_logs_db','logging');
+			$this->user_logs_db = $this->core->get_config_item('user_logs_db','logging');
 		
 		}
 		
@@ -100,7 +100,8 @@
 			}else{
 				if($this->user_logs_db){
 					if(count($params)>=3){
-						$this->FURY->db->insert_delayed($this->user_logs_db,$params);
+						echo 'MASSIVELY HERE';
+						$this->FURY->db->insert($this->user_logs_db,$params);
 					}
 				}
 			}
