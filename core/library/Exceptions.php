@@ -10,17 +10,18 @@
 	
 		function FURY_Exceptions(){
 		
-			echo 'Exceptions triggered';
 		
 		}
 		
 		function show_error($title,$text,$type,$code){
 		
-			echo '<h1>'.$title.'</h1>';
+			/*
+echo '<h3>'.$title.'</h3>';
 			
 			echo $text;
 			
 			echo '<p>Error status code: '.$code.'</p>';
+*/
 		
 		}
 		

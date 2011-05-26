@@ -321,6 +321,8 @@
 			# 404 redirect
 			if(file_exists(APP_PATH . 'view' . DS . '404' .EXT)){
 			
+				include_once(APP_PATH . 'view' .DS. 'themes'. DS .'min_404'. DS .'header'.EXT);
+			
 				include_once(APP_PATH . 'view' . DS . '404'.EXT);
 			
 			}else{
