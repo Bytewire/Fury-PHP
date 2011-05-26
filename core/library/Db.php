@@ -10,6 +10,8 @@
 		 	
 		 	// Use default connections and save them
 		 	$this->core =& load_class('Core');
+		 	$this->FURY =& get_instance();
+			$this->FURY->load->library('Logging');
 		 	
 		 	# Auto connect if told too
 		 	if($this->core->get_config_item('auto_db_connect')){

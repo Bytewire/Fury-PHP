@@ -3,25 +3,20 @@
 	if ( ! defined('ROOT')) exit('No direct script access allowed');
 
 	// =========== 
-	// ! Class To literally through errors at users as to why things didn't work as expected!   
+	// ! Class To literally throw errors at users when they come through.
+	
 	// =========== 
 	
 	class FURY_Exceptions{
 	
 		function FURY_Exceptions(){
-		
-		
+		 	$this->FURY =& get_instance();
+			
 		}
 		
 		function show_error($title,$text,$type,$code){
-		
-			/*
-echo '<h3>'.$title.'</h3>';
 			
-			echo $text;
-			
-			echo '<p>Error status code: '.$code.'</p>';
-*/
+			$this->FURY->load->view('error');
 		
 		}
 		
