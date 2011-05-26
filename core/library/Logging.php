@@ -45,9 +45,9 @@
 			
 			// Record the log into a new file.
 			
-			$txt = $this->_append($txt,$userid);
+			$txt_append = $this->_append($txt,$userid);
 			
-			error_log($txt,3,$this->log_files['main_log']);
+			error_log($txt_append,3,$this->log_files['main_log']);
 			
 			$this->log_to_db(array(
 				"ip"	=>	$ip,
@@ -74,9 +74,9 @@
 			$ip = $_SERVER['REMOTE_ADDR'];
 			$http_host = $_SERVER['REQUEST_URI'];
 						
-			$txt = $this->_append($txt,$userid);
+			$txt_append = $this->_append($txt,$userid);
 			
-			error_log($txt,3,$this->log_files['user_log']);
+			error_log($txt_append,3,$this->log_files['user_log']);
 			
 			$this->log_to_db(array(
 				"ip"	=>	$ip,
@@ -99,9 +99,9 @@
 			
 			// Record the log into a new file.
 			
-			$txt = $this->_append($txt,$userid);
+			$txt_append = $this->_append($txt,$userid);
 			
-			error_log($txt,3,$this->log_files['event_log']);
+			error_log($txt_append,3,$this->log_files['event_log']);
 			
 			$this->log_to_db(array(
 				"ip"	=>	$ip,
