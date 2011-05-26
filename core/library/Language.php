@@ -55,8 +55,8 @@
 		function setPageDefaults($locale){	
 			putenv("LC_ALL=$locale");
 			setlocale(LC_ALL, $locale);
-			bindtextdomain("messages", $this->core->get_config_item('language_directory'));
-			textdomain("messages");
+			//bindtextdomain("messages", $this->core->get_config_item('language_directory'));
+			//textdomain("messages");
 		}
 		
 		function destroyCookie(){

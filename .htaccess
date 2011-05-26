@@ -1,9 +1,8 @@
 RewriteEngine on
 
-RewriteRule ^assets/images/(.*)$ /bytewire_revamp/wp-content/themes/bytewire/images/$1 [L,NC]
-RewriteRule ^assets/(.*)$ /bytewire_revamp/client/application/assets/$1 [L,NC]
-
 #Rewrite all requests to the index.php file and pass paramaters
+
+RewriteRule ^assets/(.*)$ /boardwalk/application/assets/$1 [L,NC]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
