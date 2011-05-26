@@ -100,7 +100,6 @@
 			}else{
 				if($this->user_logs_db){
 					if(count($params)>=3){
-						echo 'MASSIVELY HERE';
 						$this->FURY->db->insert($this->user_logs_db,$params);
 					}
 				}
