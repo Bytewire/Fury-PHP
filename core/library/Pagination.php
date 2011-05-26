@@ -68,7 +68,7 @@ class FURY_Pagination{
 
 	function paginate()
 	{
-		if($_GET['ipp'] == 'All')
+		if(isset($_GET['ipp']) == 'All')
 		{
 			$this->num_pages = ceil($this->items_total/$this->default_ipp);
 			$this->items_per_page = $this->default_ipp;
@@ -78,11 +78,12 @@ class FURY_Pagination{
 			if(!is_numeric($this->items_per_page) OR $this->items_per_page <= 0) $this->items_per_page = $this->default_ipp;
 			$this->num_pages = ceil($this->items_total/$this->items_per_page);
 		}
-		$this->current_page = (int) $_GET['page']; // must be numeric > 0
+		$this->current_page = isset($_GET['page']) ? $_GET['page'] : 1; // must be numeric > 0
 		if($this->current_page < 1 Or !is_numeric($this->current_page)) $this->current_page = 1;
 		if($this->current_page > $this->num_pages) $this->current_page = $this->num_pages;
 		$prev_page = $this->current_page-1;
 		$next_page = $this->current_page+1;
+		
 
 		if($_GET)
 		{
@@ -143,8 +144,8 @@ class FURY_Pagination{
 			$this->return .= "<a class=\"paginate\" href=\"$_SERVER[PHP_SELF]?page=1&ipp=All$this->querystring\">All</a> \n";
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_items_per_page()
