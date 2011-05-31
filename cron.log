@@ -1,0 +1,24 @@
+### 2011-05-16 19:14:21 cron.php --run=/crons/energyrefill/refill -S --server=localhost:8888
+
+Notice: Use of undefined constant SELF - assumed 'SELF' in /Applications/MAMP/htdocs/boardwalk/core/library/URI.php on line 33
+Im refilling the method
+### 
+
+### 2011-05-16 19:14:50 cron.php --run=/crons/energyrefill/refill -S --server=localhost:8888
+
+Notice: Use of undefined constant SELF - assumed 'SELF' in /Applications/MAMP/htdocs/boardwalk/core/library/URI.php on line 33
+Im refilling the method
+### 
+
+### 2011-05-16 19:17:09 cron.php --run=/crons/energyrefill/refill -S --server=localhost:8888
+
+Notice: Use of undefined constant SELF - assumed 'SELF' in /Applications/MAMP/htdocs/boardwalk/core/library/URI.php on line 33
+Im refilling the method
+### 
+
+### 2011-05-16 19:17:11 cron.php --run=/crons/energyrefill/refill -S --server=localhost:8888
+
+Notice: Use of undefined constant SELF - assumed 'SELF' in /Applications/MAMP/htdocs/boardwalk/core/library/URI.php on line 33
+Im refilling the method
+### 
+

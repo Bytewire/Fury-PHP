@@ -99,6 +99,47 @@
 		 	}
 		 }
 		 
+		// =========== 
+		// ! delete a record from the db   
+		// =========== 
+		 
+		function delete($table,$where){
+		
+			$finalstr = $this->_handleWhere($where);
+			
+			if(count($where)>0){
+				$this->query("delete from $table where $finalstr");
+			}	
+	
+		}
+		
+		// =========== 
+		// ! delete a record from the fixed to one where   
+		// =========== 
+		 
+		function deletewhere($table,$field,$value){
+			$this->query("delete from $table where $field='{$value}'");
+		}
+		 
+		// =========== 
+		// ! update a table going with an array of fields at the end  
+		// =========== 
+		
+		function updatetabledata($table,$fields,$field,$value){
+			$this->query("update $table set $fields where $field='{$value}'");
+		}
+		
+		// =========== 
+		// ! update a table going with an array of fields at the end  
+		// =========== 
+		
+		function updatetabledatawhere($table,$fields,$where){
+			$finalstr = $this->_handleWhere($where);
+			if(count($where)>0){
+				$this->query("update $table set $fields where $finalstr");
+			}
+		}		
+		 
 		 // =========== 
 		 // ! Insert a record to the database   
 		 // =========== 
@@ -161,7 +202,7 @@
 				if($use_reg_table){
 					return $this->query("select $fields from $user_table where id='$id'")->as_assoc();
 				}else{
-					return $this->query("select $fields from $char_table where userid='$id'")->as_assoc();
+					return $this->query("select $fields from $char_table where id='$id'")->as_assoc();
 				}
 			}
 			return false;
@@ -186,6 +227,17 @@
 		
 		}
 		
+		function _handleWhere($where){
+			$str = array();
+			if(is_array($where)){
+				foreach($where as $k=>$v):
+					$where[$k] =  $this->_mes($v);
+					$str[]=$k."='{$where[$k]}'";
+				endforeach;
+				
+				return $finalstr = implode(" AND ",$str);
+			}
+		}
 	
 	}
 		

@@ -31,7 +31,7 @@
 				"userid"	=> $playerid,
 				"title"		=> $title,
 				"type"		=> $type,
-				"text" 		=> $text,
+				"msg" 		=> $text,
 				"time" 		=> time()
 			));
 		}

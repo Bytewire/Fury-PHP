@@ -71,6 +71,17 @@
 		}
 		
 		// =========== 
+		// ! Valid password
+		// ===========		
+		
+		function validpassword($str){
+			if(preg_match("/^[a-z0-9]{4,12}$/i",$str)){
+				return true;
+			}
+			return false;
+		}	
+		
+		// =========== 
 		// ! check the entered string is and only contains valid username stuff
 		// ===========		
 		
