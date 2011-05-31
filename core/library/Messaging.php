@@ -67,5 +67,9 @@
 			}
 				
 		}
+		
+		function markNotifications($id){
+			$this->FURY->db->updatetabledata($this->notification_table,"seen='0'","userid",$id);
+		}
 	
 	}
