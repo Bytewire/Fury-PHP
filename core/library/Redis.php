@@ -60,7 +60,7 @@ class FURY_Redis {
      * @param   array   $config     the config array
      * @throws  RedisException
      */
-    public function  __construct(array $config = array())
+    public function FURY_Redis(array $config = array())
     {
         $config = array_merge(array('hostname' => 'localhost', 'port' => 6379), $config);
         $this->connection = @fsockopen($config['hostname'], $config['port'], $errno, $errstr);
@@ -152,15 +152,15 @@ class FURY_Redis {
 
         switch (substr($reply, 0, 1))
         {
-            case Redis::ERROR:
+            case FURY_Redis::ERROR:
                 throw new RedisException(substr(trim($reply), 4));
             break;
 
-            case Redis::INLINE:
+            case FURY_Redis::INLINE:
                 $response = substr(trim($reply), 1);
             break;
 
-            case Redis::BULK:
+            case FURY_Redis::BULK:
                 if ($reply == '$-1')
                 {
                     break;
@@ -168,7 +168,7 @@ class FURY_Redis {
                 $response = $this->readBulkReply($reply);
             break;
 
-            case Redis::MULTIBULK:
+            case FURY_Redis::MULTIBULK:
                 $count = substr($reply, 1);
                 if ($count == '-1')
                 {
@@ -191,7 +191,7 @@ class FURY_Redis {
                 }
             break;
 
-            case Redis::INTEGER:
+            case FURY_Redis::INTEGER:
                 $response = substr(trim($reply), 1);
             break;
 
@@ -200,7 +200,7 @@ class FURY_Redis {
             break;
         }
         
-        return $response;
+        return isset($response) ? $response : false;
     }
 
     /**
