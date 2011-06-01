@@ -200,7 +200,7 @@ class FURY_Redis {
             break;
         }
         
-        return $response;
+        return isset($response) ? $response : false;
     }
 
     /**
