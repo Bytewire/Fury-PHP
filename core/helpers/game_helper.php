@@ -1,11 +1,17 @@
 <?php	
 	
 	if(!function_exists('profilelink')){
-		function profilelink($base=false,$id,$username){
+		function profilelink($base=false,$id,$username=false){
 			if(!$base){
 				$FURY =& get_instance();
 				$base = $FURY->core->get_config_item('base_url');
 			}
+			if(!$username || $username==''){
+				$FURY =& get_instance();
+				$user = $FURY->db->getuser($id,"username");
+				$username = $user['username'];
+			}
+			
 			return anchor($base.'profile/player/'.$id,$username,array("class"=>"bold no_decor"));
 		}
 	}

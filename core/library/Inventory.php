@@ -18,7 +18,7 @@
 				if(!$this->FURY->db->query("select * from inventory where userid='$id' and itemid='$itemid'")->as_assoc()){
 				
 					//$iteminfo = $this->fetchItemInfo($itemid);
-				
+									
 					$this->FURY->db->insert("inventory",array(
 						"userid" => $id,
 						"itemid" => $itemid,
@@ -57,9 +57,30 @@
 			}
 		}
 		
+		function fetchInventory($itemid,$playerid){
+			if(isset($itemid) && $this->FURY->validation->is_numeric($itemid) && isset($playerid) && $this->FURY->validation->is_numeric($playerid)){
+				return $this->FURY->db->query("select inventory.*,items.name from inventory INNER JOIN items ON inventory.itemid=items.id WHERE inventory.itemid='$itemid' and inventory.userid='$playerid'")->as_assoc();
+			}
+			return false;
+		}
+		
 		function fetchItemInfo($itemid){
 			if(isset($itemid) && $this->FURY->validation->is_numeric($itemid)){
 				return $this->FURY->db->query("select * from items where id='$itemid'")->as_assoc();
+			}
+			return false;
+		}
+		
+		function verifyItem($itemid){
+			if(isset($itemid) && $this->FURY->validation->is_numeric($itemid)){
+				return $this->FURY->db->query("select * from items where id='$itemid'")->as_assoc();
+			}
+			return false;
+		}
+		
+		function hasItem($itemid,$playerid){
+			if(isset($itemid) && $this->FURY->validation->is_numeric($itemid) && isset($playerid) && $this->FURY->validation->is_numeric($playerid)){
+				return $this->FURY->db->query("select * from inventory where userid='$playerid' and itemid='$itemid'")->as_assoc();
 			}
 			return false;
 		}

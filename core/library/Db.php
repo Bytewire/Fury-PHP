@@ -33,11 +33,17 @@
 		 				$this->selectDb($default['database']);
 		 				
 		 			}else{
-		 				show_error("Problem connecting to default database, please check your credentials over before trying again!".mysql_error());
+		 				
+		 				# Log the error.
+		 				$this->FURY->logging->mysql_log("Problem connecting to default database",mysql_error());
+		 			
 		 			}
 		 		
 		 		}else{
-		 			show_error("It looks like you want to auto connect but have not supplied all the database credentials, please do so and try again.");
+		 			
+		 				# Log the error.
+		 				$this->FURY->logging->mysql_log("Database credentials missing.",mysql_error());
+
 		 		}
 		 	
 		 	}
@@ -46,14 +52,21 @@
 		 
 		 function selectDb($database){	
 		 	if(!$db = mysql_select_db($database)){
-		 		show_error("Unable to select database: $database");
+		 	
+ 				# Log the error.
+ 				$this->FURY->logging->mysql_log("Unable to select database: $database.",mysql_error());
 		 		return false;
 		 	}
 		 	return true;
 		 }
 		 
 		 function query($query){
-		 	$this->current_query = mysql_query($query) or die(mysql_error());
+		 	$this->current_query = mysql_query($query);
+		 	if(mysql_errno()){
+		 		# Log this error.
+		 		$this->FURY->logging->mysql_log($query,mysql_error());
+		 	}
+		 	
 		 	return $this;
 		 }
 		 
@@ -100,6 +113,15 @@
 		 }
 		 
 		// =========== 
+		// ! Due to my love of this phrase I can't do without it.  
+		// ===========  
+		
+		function getwhere($select_fields,$table,$field,$var){
+			return $this->query("select $select_fields from $table where $field='{$var}'")->as_assoc();
+		}
+		
+		 
+		// =========== 
 		// ! delete a record from the db   
 		// =========== 
 		 
@@ -111,6 +133,14 @@
 				$this->query("delete from $table where $finalstr");
 			}	
 	
+		}
+		
+		// =========== 
+		// ! Get all data  
+		// =========== 
+		
+		function getalldata($table){
+			return $this->query("select * from $table")->rows();
 		}
 		
 		// =========== 
@@ -128,7 +158,7 @@
 		function updatetabledata($table,$fields,$field,$value){
 			$this->query("update $table set $fields where $field='{$value}'");
 		}
-		
+	
 		// =========== 
 		// ! update a table going with an array of fields at the end  
 		// =========== 
@@ -155,7 +185,7 @@
 			    
 			    $q = $this->query($insertstr);
 		   	
-		   	if($ret){
+		   	if($ret && $q){
 		   		return mysql_insert_id();
 		   	}
 		        
