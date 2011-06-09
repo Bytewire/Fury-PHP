@@ -40,6 +40,20 @@
 	}
 	
 	// =========== 
+	// ! Adds a button of your choice. 
+	// =========== 
+	
+	if( ! function_exists('make_button')){
+		function make_button($type,$value,$attributes){
+			$button = '<button type="'.$type.'"';
+			$button.= _attributes_to_string($attributes, TRUE);
+			$button.= '>'.$value.'</button>';
+			return $button;
+		}
+	}	
+	
+	
+	// =========== 
 	// ! Error box presets   
 	// =========== 
 	

@@ -11,7 +11,7 @@
 	// Create better more seamless approach to local and remote coding. 
 	// Could also be changed to be anything you like but localhost works well for us here.  
 	// =========== 
-	
+		
 	# Set some defines and call our bootstrap
 			
     switch($_SERVER['HTTP_HOST']){

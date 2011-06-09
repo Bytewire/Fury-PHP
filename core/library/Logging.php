@@ -13,6 +13,7 @@
 	private $error_db;
 	private $user_logs_db;
 	private $event_db;
+	private $mysql_db;
 	
 		function Fury_Logging(){
 		
@@ -31,6 +32,8 @@
 			$this->error_db = $this->core->get_config_item('error_db','logging');
 			$this->user_logs_db = $this->core->get_config_item('user_logs_db','logging');
 			$this->event_db = $this->core->get_config_item('event_db','logging');
+			$this->mysql_db = $this->core->get_config_item('mysql_db','logging');
+			
 		
 		}
 		
@@ -69,21 +72,17 @@
 			}
 			
 			// Record the log into a new file.
-			
-			$date = date('d.m.Y h:i:s',time()); 
-			$ip = $_SERVER['REMOTE_ADDR'];
-			$http_host = $_SERVER['REQUEST_URI'];
 						
 			$txt_append = $this->_append($txt,$userid);
 			
 			error_log($txt_append,3,$this->log_files['user_log']);
 			
 			$this->log_to_db(array(
-				"ip"	=>	$ip,
+				"ip"	=>	$this->ip,
 				"time" => time(),
 				"userid" => $userid,
 				"txt"	=> $txt,
-				"uri"	=>	$http_host
+				"uri"	=>	$this->http_host
 			),"user");			
 							
 		}
@@ -104,12 +103,46 @@
 			error_log($txt_append,3,$this->log_files['event_log']);
 			
 			$this->log_to_db(array(
-				"ip"	=>	$ip,
+				"ip"	=>	$this->ip,
 				"time" => time(),
 				"userid" => $userid,
 				"txt"	=> $txt,
-				"uri"	=>	$http_host
+				"uri"	=>	$this->http_host
 			),"event");
+					
+		}
+		
+		function mysql_log($query,$error){
+		
+			if(!$this->log_files['mysql_log']){
+				$this->core =& load_class('Core');
+				foreach($this->core->get_config_item('logging') as $k=>$v):
+					$this->log_files[$k] = $v;
+				endforeach;				
+			}
+			
+			// Record the log into a new file.
+			
+			if(isset($_SESSION['id'])){
+				$userid = $_SESSION['id'];
+			}else{
+				$userid = 0;
+			}
+			
+			$txt = $error.' | '.$query;
+			
+			$txt_append = $this->_append($txt,$userid);
+			
+			error_log($txt_append,3,$this->log_files['mysql_log']);
+			
+			$this->log_to_db(array(
+				"userid"	=>	$userid,
+				"query_used" => $query,
+				"mysql_error" => $error,
+				"time"	=> time(),
+				"uri"	=>	$this->http_host,
+				"ip" => $this->ip
+			),"mysql");
 					
 		}
 		
@@ -126,7 +159,7 @@
 				case "user":
 							if($this->error_db){
 								if(count($params)>=3){
-									$this->FURY->db->insert($this->user_logs_db,$params);
+									$this->FURY->db->insert_delayed($this->user_logs_db,$params);
 								}
 							}
 							break;
@@ -137,6 +170,13 @@
 								}
 							}
 							break;
+				case "mysql":
+							if($this->mysql_db){
+								if(count($params)>5){
+									$this->FURY->db->insert($this->mysql_db,$params);
+								}
+							}
+							break;
 			}
 
 		}
@@ -144,10 +184,10 @@
 		function _append($txt,$userid){
 		
 			$date = date('d.m.Y h:i:s',time()); 
-			$ip = $_SERVER['REMOTE_ADDR'];
-			$http_host = $_SERVER['REQUEST_URI'];
+			$this->ip = $_SERVER['REMOTE_ADDR'];
+			$this->http_host = $_SERVER['REQUEST_URI'];
 			
-			$txt = $date.' | '.$ip.' | userid: '.$userid.' | '.$txt.' | uri: '.$http_host."\n";
+			$txt = $date.' | '.$this->ip.' | userid: '.$userid.' | '.$txt.' | uri: '.$this->http_host."\n";
 			
 			return $txt;
 
