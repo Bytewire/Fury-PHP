@@ -8,7 +8,7 @@
 	
 	// At this point we want to be able to break the site.
 	
-	if(isset($config['sitedown']['enabled'])){
+	if($config['sitedown']['enabled']){
 		if(file_exists($config['relative_path'].'sitedown.txt')){
 			die("The site is currently experiencing some technical difficulties");
 		}			

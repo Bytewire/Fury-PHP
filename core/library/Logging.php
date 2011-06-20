@@ -159,14 +159,14 @@
 				case "user":
 							if($this->error_db){
 								if(count($params)>=3){
-									$this->FURY->db->insert_delayed($this->user_logs_db,$params);
+									$this->FURY->db->insert($this->user_logs_db,$params);
 								}
 							}
 							break;
 				case "error":
 							if($this->error_db){
 								if(count($params)>=5){
-									$this->FURY->db->insert_delayed($this->error_db,$params);
+									$this->FURY->db->insert($this->error_db,$params);
 								}
 							}
 							break;

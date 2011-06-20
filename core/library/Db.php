@@ -144,6 +144,14 @@
 		}
 		
 		// =========== 
+		// ! Get all data where  
+		// =========== 
+		
+		function getalldatawhere($table,$field,$var){
+			return $this->query("select * from $table where $field='$var'")->as_assoc();
+		}
+		
+		// =========== 
 		// ! delete a record from the fixed to one where   
 		// =========== 
 		 
