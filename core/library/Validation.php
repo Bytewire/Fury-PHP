@@ -111,6 +111,19 @@
 			return false;
 		}
 		
+		// =========== 
+		// ! function crew name checker   
+		// 
+		// =========== 
+		
+		function crewName($str){
+		$this->FURY->load->library('Profanity');
+
+			return true;
+
+		}
+		
+		
 		
 		// =========== 
 		// ! function to check if a username is valid.   

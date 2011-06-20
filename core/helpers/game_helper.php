@@ -16,6 +16,21 @@
 		}
 	}
 	
+	if(!function_exists('crewLink')){
+		function crewlink($base=false,$id,$crewname=false){
+			if(!$base){
+				$FURY =& get_instance();
+				$base = $FURY->core->get_config_item('base_url');
+			}	
+			if(!$crewname || $crewname==''){
+				$FURY =& get_instance();
+				$crewname = $FURY->db->query("SELECT crewname FROM crews WHERE id = '$id'")->get();
+			}
+
+			return anchor($base.'profile/crew/'.$id,$crewname,array("class"=>"bold no_decor"));
+		}
+	}
+	
 	if(!function_exists('avatar')){
 		function avatar($avatar){
 		
