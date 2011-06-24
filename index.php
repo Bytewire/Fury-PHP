@@ -11,9 +11,9 @@
 	// Create better more seamless approach to local and remote coding. 
 	// Could also be changed to be anything you like but localhost works well for us here.  
 	// =========== 
-		
-	# Set some defines and call our bootstrap
 			
+	# Set some defines and call our bootstrap
+	if($_SERVER['HTTP_HOST']){
     switch($_SERVER['HTTP_HOST']){
         case "localhost:8888": 
             define('DEVELOPMENT_ENVIRONMENT' , true);
@@ -29,7 +29,13 @@
             define('ROOT', dirname(dirname(__FILE__)).'/http/');
             define('SYS', 'core/');
     }	
-	
+	}else{
+        define('DEVELOPMENT_ENVIRONMENT' , true);
+        define('EXT', '.php');
+        define('DS', DIRECTORY_SEPARATOR);
+        define('ROOT', dirname(dirname(__FILE__)).'/boardwalk/');
+        define('SYS', 'core/');	
+	}
 	# True error reporting should be set here, to find problems right from the route.	
 	
 	if (DEVELOPMENT_ENVIRONMENT == TRUE) {
@@ -45,5 +51,5 @@
 	
 	# Require the bootstrap file		 
 	
-	require_once (ROOT . DS . 'core' . DS . 'bootstrap.php');
+	require_once (ROOT . 'core' .DS. 'bootstrap.php');
 	

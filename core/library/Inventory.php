@@ -17,7 +17,7 @@
 				
 				if(!$this->FURY->db->query("select * from inventory where userid='$id' and itemid='$itemid'")->as_assoc()){
 				
-					//$iteminfo = $this->fetchItemInfo($itemid);
+					$iteminfo = $this->fetchItemInfo($itemid);
 									
 					$this->FURY->db->insert("inventory",array(
 						"userid" => $id,
@@ -81,6 +81,13 @@
 		function hasItem($itemid,$playerid){
 			if(isset($itemid) && $this->FURY->validation->is_numeric($itemid) && isset($playerid) && $this->FURY->validation->is_numeric($playerid)){
 				return $this->FURY->db->query("select * from inventory where userid='$playerid' and itemid='$itemid'")->as_assoc();
+			}
+			return false;
+		}
+		
+		function fetchQuants($itemid,$playerid){
+			if(isset($itemid) && $this->FURY->validation->is_numeric($itemid) && isset($playerid) && $this->FURY->validation->is_numeric($playerid)){
+				return $this->FURY->db->query("select quantity from inventory where userid='$playerid' and itemid='$itemid'")->get();
 			}
 			return false;
 		}
