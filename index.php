@@ -21,6 +21,7 @@
             define('DS', DIRECTORY_SEPARATOR);
             define('ROOT', dirname(dirname(__FILE__)).'/boardwalk/');
             define('SYS', 'core/');
+            define('APPPATH','application');
             break;
         default: 
             define('DEVELOPMENT_ENVIRONMENT' , false);
@@ -28,6 +29,7 @@
             define('DS', DIRECTORY_SEPARATOR);
             define('ROOT', dirname(dirname(__FILE__)).'/http/');
             define('SYS', 'core/');
+            define('APPPATH','application');
     }	
 	}else{
         define('DEVELOPMENT_ENVIRONMENT' , true);
@@ -35,6 +37,7 @@
         define('DS', DIRECTORY_SEPARATOR);
         define('ROOT', dirname(dirname(__FILE__)).'/boardwalk/');
         define('SYS', 'core/');	
+        define('APPPATH','application');
 	}
 	# True error reporting should be set here, to find problems right from the route.	
 	

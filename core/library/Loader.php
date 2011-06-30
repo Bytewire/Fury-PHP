@@ -458,8 +458,7 @@
 		function _fury_autoload(){
 			
 			global $config;
-			
-			
+					
 			if(!isset($config['auto_load'])){
 				return false;
 			}
@@ -473,7 +472,7 @@
 			}
 			
 			if(count($config['auto_load_models'])>0 && isset($config['auto_load_models'])){
-				//$this->model($config['auto_load_models']);
+				$this->model($config['auto_load_models']);
 			}
 			
 		

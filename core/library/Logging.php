@@ -20,6 +20,7 @@
 			// lets do some stuff with this shit
 			
 			$this->core =& load_class('Core');
+			//$this->session =& load_class('session');
 			$this->FURY =& get_instance();
 			$this->FURY->load->library('db');
 			
@@ -33,6 +34,7 @@
 			$this->user_logs_db = $this->core->get_config_item('user_logs_db','logging');
 			$this->event_db = $this->core->get_config_item('event_db','logging');
 			$this->mysql_db = $this->core->get_config_item('mysql_db','logging');
+			$this->mail_db = $this->core->get_config_item('mail_db','logging');
 			
 		
 		}
@@ -123,9 +125,9 @@
 			
 			// Record the log into a new file.
 			
-			if(isset($_SESSION['id'])){
-				$userid = $_SESSION['id'];
-			}else{
+			$userid = $this->FURY->session->_get('id');
+			
+			if(!isset($userid)){
 				$userid = 0;
 			}
 			
@@ -145,6 +147,37 @@
 			),"mysql");
 					
 		}
+		
+		function mail_log($txt,$userid){
+		
+			if(!$this->log_files['mysql_log']){
+				$this->core =& load_class('Core');
+				foreach($this->core->get_config_item('logging') as $k=>$v):
+					$this->log_files[$k] = $v;
+				endforeach;				
+			}
+			
+			// Record the log into a new file.
+			
+			$userid = $this->session->_get('id');
+			
+			if(!isset($userid)){
+				$userid = 0;
+			}
+						
+			$txt_append = $this->_append($txt,$userid);
+			
+			error_log($txt_append,3,$this->log_files['mail_log']);
+			
+			$this->log_to_db(array(
+				"userid"	=>	$userid,
+				"txt" => $txt,
+				"time"	=> time(),
+				"uri"	=>	$this->http_host,
+				"ip" => $this->ip
+			),"mail");
+					
+		}		
 		
 		function log_to_db($params,$type){
 		
@@ -174,6 +207,13 @@
 							if($this->mysql_db){
 								if(count($params)>5){
 									$this->FURY->db->insert($this->mysql_db,$params);
+								}
+							}
+							break;
+				case "mail": 
+							if($this->mail_db){
+								if(count($params)>5){
+									$this->FURY->db->insert($this->mail_db,$params);
 								}
 							}
 							break;

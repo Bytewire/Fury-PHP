@@ -86,6 +86,10 @@
 		 	return $array;
 		 }
 		 
+		 function count($table,$field='*',$where){
+		 	$query = $this->query("SELECT COUNT($field) as total FROM $table WHERE $where")->as_assoc();
+		 	return $query['total']; 
+		 }
 		 
 		 # Returns the mysql_object as an object
 		 function as_object(){
@@ -244,7 +248,23 @@
 				}
 			}
 			return false;
-		}		
+		}
+		
+		// =========== 
+		// ! Get all player details.
+		// =========== 			
+		
+		function getuserinfo($id,$fields='*'){
+			$char_table = $this->core->get_config_item('character_table');
+			$user_table = $this->core->get_config_item('user_table');
+
+
+			return $this->query("SELECT $fields
+			FROM $char_table c
+			INNER JOIN $user_table u
+			ON c.userid=u.id
+			WHERE c.id='$id'")->as_assoc();
+		}
 
 		// =========== 
 		// ! Detect whether or not global magicquotes are available   
