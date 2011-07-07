@@ -134,6 +134,7 @@
 			$finalstr = $this->_handleWhere($where);
 			
 			if(count($where)>0){
+							
 				$this->query("delete from $table where $finalstr");
 			}	
 	
@@ -231,6 +232,42 @@
 			}
 			return false;
 		}
+		
+		// =========== 
+		// ! Get timers
+		// =========== 
+		
+		function getTimer($id,$fields='*'){
+			if($id && $fields){
+				return $this->query("select $fields from character_timers where userid='$id'")->as_assoc();
+			}
+		}			
+		
+		// =========== 
+		// ! Get timers
+		// ===========
+		
+		function updateTimer($id,$fields){
+			if($id && $fields){
+			
+				/* Check they have a row */
+				if(!$this->query("select id from character_timers where userid='$id'")->as_assoc()):
+					$this->insert("character_timers",array(
+						"userid" => $id
+					));
+				endif;
+				
+				if(is_array($fields)){
+					$sql = array();
+					foreach($fields as $k=>$v):
+						$sql[]="$k='{$v}'";
+					endforeach;
+					$fields = implode(",",$sql);
+				}
+			
+				$this->query("update character_timers set $fields where userid='$id'");
+			}
+		}		
 		
 		// =========== 
 		// ! Get updates to the player.
