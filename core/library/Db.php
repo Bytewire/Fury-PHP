@@ -275,18 +275,26 @@
 		
 		function getuser($id,$fields='*',$use_reg_table=false){
 			if($id && $fields){
+			
+				if(is_numeric($id)):
+					$ext = "id='$id'";
+				else:
+					$ext = "username='$id'";
+				endif;
+			
 				$char_table = $this->core->get_config_item('character_table');
 				$user_table = $this->core->get_config_item('user_table');
 				
 				if($use_reg_table){
-					return $this->query("select $fields from $user_table where id='$id'")->as_assoc();
+					return $this->query("select $fields from $user_table where $ext")->as_assoc();
 				}else{
-					return $this->query("select $fields from $char_table where id='$id'")->as_assoc();
+					return $this->query("select $fields from $char_table where $ext")->as_assoc();
 				}
 			}
 			return false;
 		}
 		
+
 		// =========== 
 		// ! Get all player details.
 		// =========== 			

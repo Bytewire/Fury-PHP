@@ -222,11 +222,12 @@
 					}
 	
 				}
-	
-				return $segments;
 			}
-	
-			$this->throw404($segments[0]);
+			
+			return $segments;
+			
+			// Can't find the requested controller...
+			//$this->throw404($segments[0]);
 		}	
 	
 	
@@ -316,6 +317,7 @@
 		}
 		 			 		 	
 		
+/*
 		function throw404($segments){
 		
 			# 404 redirect
@@ -332,5 +334,6 @@
 			}				
 		
 		}
+*/
 		
 	 }

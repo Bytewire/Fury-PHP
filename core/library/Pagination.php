@@ -22,7 +22,7 @@ class FURY_Pagination {
 	var $total_rows			= ''; // Total number of items (database results)
 	var $per_page			= 10; // Max number of items you want shown per page
 	var $num_links			=  10; // Number of "digit" links to show before/after the currently viewed page
-	var $cur_page			=  0; // The current page being viewed
+	var $cur_page			=  1; // The current page being viewed
 	var $first_link			= '&lsaquo; First';
 	var $next_link			= '&gt;';
 	var $prev_link			= '&lt;';
@@ -146,7 +146,7 @@ class FURY_Pagination {
 		// If so we show the last page
 		if ($this->cur_page > $this->total_rows)
 		{
-			$this->cur_page = ($num_pages - 1) * $this->per_page;
+			$this->cur_page = ($num_pages - 1);
 		}
 
 		$uri_page_number = $this->cur_page;
