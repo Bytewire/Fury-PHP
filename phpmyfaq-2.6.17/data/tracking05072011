@@ -1,0 +1,5 @@
+1;new_session;0;127.0.0.1;;http://localhost:8888/boardwalk/phpmyfaq-2.6.17/install/setup.php;Mozilla/5.0 (Macintosh, Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30;1309883117;
+2;new_session;0;127.0.0.1;action=login;http://localhost:8888/boardwalk/phpmyfaq-2.6.17/index.php;Mozilla/5.0 (Macintosh, Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30;1309883127;
+3;new_session;0;127.0.0.1;;http://localhost:8888/boardwalk/phpmyfaq-2.6.17/admin/index.php?action=editentry;Mozilla/5.0 (Macintosh, Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30;1309883907;
+4;new_session;0;127.0.0.1;;http://localhost:8888/boardwalk/phpmyfaq-2.6.17/;Mozilla/5.0 (Macintosh, Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30;1309883907;
+5;new_session;0;127.0.0.1;;http://localhost:8888/boardwalk/phpmyfaq-2.6.17/;Mozilla/5.0 (Macintosh, Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30;1309883910;

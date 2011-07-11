@@ -133,4 +133,31 @@
 			return strtotime($date);
 		}
 		
+		/**
+		*
+		* Check time is less than time. 
+		*/
+		
+		function checktime($time,$error_elements=false){
+			
+			if($time-time()<0):
+				return true;
+			endif;
+			
+			if($error_elements):
+				
+				if(!is_array($error_elements)):
+					$name = $error_elements;
+				elseif(is_array($error_elements)):
+					$name = $error_elements['name'];
+				endif;
+				
+				throw new Exception(sprintf(gettext("You must wait another %s before attempting another %s."),$this->standard_time_left($time),$name));
+				
+			endif;
+			
+			return false;
+			
+		}
+		
 	}
