@@ -417,7 +417,7 @@
 				}
 			}
 			return $text;	
-		
+		}
 		/**
 		*
 		* Handle setting an array of fields 
