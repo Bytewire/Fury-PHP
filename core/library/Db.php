@@ -12,6 +12,7 @@
 		 	$this->core =& load_class('Core');
 		 	$this->FURY =& get_instance();
 			$this->FURY->load->library('Logging');
+		 	$this->FURY->load->library('Validation');
 		 	
 		 	# Auto connect if told too
 		 	if($this->core->get_config_item('auto_db_connect')){
@@ -340,6 +341,18 @@
 				
 				return $finalstr = implode(" AND ",$str);
 			}
+		}
+		
+		function build_number($amount){
+			if($this->FURY->validation->is_numeric($amount)){
+				if($amount >= 0){
+					$text = "+ '".$amount."'";
+				} else {
+					$minus = split("-",$amount);
+					$text = "- '".$minus[1]."'";
+				}
+			}
+			return $text;	
 		}
 	
 	}
