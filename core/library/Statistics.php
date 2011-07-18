@@ -49,10 +49,11 @@
 					
 					$sql = 'value = value '.$this->FURY->db->build_number($v);
 					$this->FURY->db->query("UPDATE character_stats SET $sql WHERE id = '$rowid'");
+		
 				}
 			}
 		}
-	
+
 		function site($stat_data=array(),$stat_value=''){
 			if(is_string($stat_data)){    
             	$stat_data = array($stat_data => $stat_value);

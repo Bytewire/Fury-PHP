@@ -68,6 +68,7 @@
 			if ($this->uri_string == '/'){
 				$this->uri_string = '';
 			}
+
 		}
 		
 		// =========== 
