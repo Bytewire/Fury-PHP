@@ -475,6 +475,11 @@
 				$this->model($config['auto_load_models']);
 			}
 			
+			
+			//helpers
+			if(count($config['auto_load_helpers'])>0 && isset($config['auto_load_helpers'])){
+				$this->helper($config['auto_load_helpers']);
+			}		
 		
 		}
 		

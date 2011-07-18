@@ -1,6 +1,21 @@
 <?php
 
 	if ( ! defined('ROOT')) exit('No direct script access allowed');
+	
+	
+	/**
+	*
+	* Controls all the form helper functions 
+	*/
+	
+	/* ======================================== */
+	
+	/**
+	 * Form Declaration - Multipart type
+	 *
+	 * Creates the opening portion of a form for the current page.
+	 *
+	 */
 
 	if( ! function_exists('form_open_this')){
 	
@@ -28,6 +43,30 @@
 		}
 	
 	}
+	
+	
+	/**
+	 * Form Declaration - Multipart type
+	 *
+	 * Creates the opening portion of the form, but with "multipart/form-data".
+	 *
+	 */
+	 
+	if ( ! function_exists('form_open_multipart')){
+
+		function form_open_multipart($action, $attributes = array(), $hidden = array()){
+			if (is_string($attributes)){
+				$attributes .= ' enctype="multipart/form-data"';
+			}
+			else{
+				$attributes['enctype'] = 'multipart/form-data';
+			}
+	
+			return form_open_this($action, $attributes, $hidden);
+		}
+		
+	}
+	
 	
 	// =========== 
 	// ! Closes a form.   

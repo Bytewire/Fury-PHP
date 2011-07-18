@@ -87,7 +87,16 @@
 		 }
 		 
 		 function count($table,$field='*',$where){
-		 	$query = $this->query("SELECT COUNT($field) as total FROM $table WHERE $where")->as_assoc();
+		 	
+		 	if(is_array($where)):
+		 		$where = $this->_handleWhere($where);
+		 	endif;
+		 	
+		 	if($where!=''):
+		 		$where = 'WHERE '.$where;
+		 	endif;
+		 
+		 	$query = $this->query("SELECT COUNT($field) as total FROM $table $where")->as_assoc();
 		 	return $query['total']; 
 		 }
 		 
@@ -162,6 +171,61 @@
 		 
 		function deletewhere($table,$field,$value){
 			$this->query("delete from $table where $field='{$value}'");
+		}
+		
+		// =========== 
+		// ! Update table, simple more versatile form of an update table function.  
+		// =========== 
+		
+		function updateTable($table,$fields=array(),$where=array(),$where_val=false){
+			
+			if(is_array($fields)):
+				$field_str = $this->_handleFields($fields);
+			elseif(is_string($fields)):
+				$field_str = $fields;
+			endif;
+			
+			if(is_string($where)):
+				$where = array($where => $where_val);
+			endif;
+			
+			$where_str = $this->_handleWhere($where);
+			
+			if($where_str!=''):
+				$where_str = 'WHERE '.$where_str;
+			endif;
+			
+			if($field_str!=''):
+			
+				$this->query("UPDATE $table SET $field_str $where_str");
+			
+			endif;
+		
+		}
+		
+		
+		// =========== 
+		// ! Update where, simple function really, updates fields where array.  
+		// =========== 
+		
+		function updateWhere($table,$fields,$where=array(),$val=false){
+			
+			if(is_array($fields)):
+				$fields = $this->_handleFields($fields);
+			endif;
+			
+			if(is_string($where)):
+				$where = array($where => $val);
+			endif;
+			
+			$where_str = $this->_handleWhere($where);
+			
+			if($where_str!=''):
+				$where_str = 'WHERE '.$where_str;
+			endif;
+			
+			$this->query("update $table set $fields $where_str");
+			
 		}
 		 
 		// =========== 
@@ -340,6 +404,24 @@
 				
 				return $finalstr = implode(" AND ",$str);
 			}
+		}
+		
+		
+		/**
+		*
+		* Handle setting an array of fields 
+		*/
+		
+		
+		function _handleFields($fields){
+			$str = array();
+			if(is_array($fields)){
+				foreach($fields as $k=>$v):
+					$value =  $this->_mes($v);
+					$str[]=$k."='{$value}'";
+				endforeach;
+				return $finalstr = implode(" AND ",$str);
+			}		
 		}
 	
 	}

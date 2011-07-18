@@ -1,19 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
- */
-
-// ------------------------------------------------------------------------
+<?php  if ( ! defined('ROOT')) exit('No direct script access allowed');
 
 /**
  * File Uploading Class
@@ -24,7 +9,7 @@
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/file_uploading.html
  */
-class CI_Upload {
+class FURY_Upload {
 
 	public $max_size				= 0;
 	public $max_width				= 0;
@@ -66,7 +51,6 @@ class CI_Upload {
 			$this->initialize($props);
 		}
 
-		log_message('debug', "Upload Class Initialized");
 	}
 
 	// --------------------------------------------------------------------
@@ -79,6 +63,7 @@ class CI_Upload {
 	 */
 	public function initialize($config = array())
 	{
+			
 		$defaults = array(
 							'max_size'			=> 0,
 							'max_width'			=> 0,
@@ -594,9 +579,10 @@ class CI_Upload {
 		}
 
 		$ext = strtolower(ltrim($this->file_ext, '.'));
+		
 
 		if ( ! in_array($ext, $this->allowed_types))
-		{
+		{	
 			return FALSE;
 		}
 
@@ -612,11 +598,15 @@ class CI_Upload {
 		}
 
 		if ($ignore_mime === TRUE)
-		{
+		{	
 			return TRUE;
 		}
 
 		$mime = $this->mimes_types($ext);
+		
+		if($mime==''):
+			return TRUE;
+		endif;
 
 		if (is_array($mime))
 		{
@@ -629,6 +619,7 @@ class CI_Upload {
 		{
 				return TRUE;
 		}
+		
 
 		return FALSE;
 	}
@@ -874,8 +865,8 @@ class CI_Upload {
 			return FALSE;
 		}
 
-		$CI =& get_instance();
-		return $CI->security->xss_clean($data, TRUE);
+		$FURY =& get_instance();
+		return $FURY->security->xss_clean($data, TRUE);
 	}
 
 	// --------------------------------------------------------------------
@@ -888,23 +879,18 @@ class CI_Upload {
 	 */
 	public function set_error($msg)
 	{
-		$CI =& get_instance();
-		$CI->lang->load('upload');
-
 		if (is_array($msg))
 		{
 			foreach ($msg as $val)
 			{
-				$msg = ($CI->lang->line($val) == FALSE) ? $val : $CI->lang->line($val);
+				$msg = $val;
 				$this->error_msg[] = $msg;
-				log_message('error', $msg);
 			}
 		}
 		else
 		{
-			$msg = ($CI->lang->line($msg) == FALSE) ? $msg : $CI->lang->line($msg);
+			$msg =  $msg;
 			$this->error_msg[] = $msg;
-			log_message('error', $msg);
 		}
 	}
 
