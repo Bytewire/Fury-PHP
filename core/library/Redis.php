@@ -62,7 +62,7 @@ class FURY_Redis {
      */
     public function FURY_Redis(array $config = array())
     {
-        $this->$config = array_merge(array('hostname' => '87.124.86.12', 'port' => 6379, 'password' => 'foobared'), $config);
+        $this->config = array_merge(array('hostname' => '87.124.86.12', 'port' => 6379, 'password' => 'foobared'), $config);
         $this->connection = @fsockopen( $this->config['hostname'],  $this->config['port'], $errno, $errstr);
 
         if ( ! $this->connection)
