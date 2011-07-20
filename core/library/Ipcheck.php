@@ -19,7 +19,7 @@
 
 			$this->FURY->load->library('Logging');			
 			
-			//$this->FURY->config->load('ip_check',TRUE);
+			$this->FURY->config->load('ip_check',TRUE);
 			
 			$this->base_url = $this->FURY->core->get_config_item('base_url');
 			
