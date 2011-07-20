@@ -62,8 +62,8 @@ class FURY_Redis {
      */
     public function FURY_Redis(array $config = array())
     {
-        $config = array_merge(array('hostname' => '87.124.86.12', 'port' => 6379), $config);
-        $this->connection = @fsockopen($config['hostname'], $config['port'], $errno, $errstr);
+        $this->$config = array_merge(array('hostname' => '87.124.86.12', 'port' => 6379, 'password' => 'foobared'), $config);
+        $this->connection = @fsockopen( $this->config['hostname'],  $this->config['port'], $errno, $errstr);
 
         if ( ! $this->connection)
         {
@@ -88,7 +88,9 @@ class FURY_Redis {
      * @throws  RedisException
      */
     public function __call($name, $args)
-    {
+    {	
+    	
+ 
         $cmd = $this->buildCommand($name, $args);
         $this->sendCommand($cmd);
 
@@ -115,7 +117,12 @@ class FURY_Redis {
             $command .= '$'.strlen($arg).CRLF;
             $command .= $arg.CRLF;
         }
-        
+        $s.='$'.strlen($m)."\r\n";
+                                $s.=$m."\r\n";
+   		if($this->config['password']):
+    		$command .= "AUTH: ".$this->config['password']."\r\n";
+    	endif;
+            
         return $command;
     }
 
