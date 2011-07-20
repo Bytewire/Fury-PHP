@@ -13,7 +13,7 @@
 		var $base_url = '';		
 		var $breached = 0;
 			
-		function FURY_IP_Check(){
+		function FURY_Ipcheck(){
 			
 			$this->FURY =& get_instance();
 
