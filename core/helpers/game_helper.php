@@ -35,28 +35,39 @@
 		function avatar($avatar){
 		
 			$no_avatar = false;
-		
 			$FURY =& get_instance();
-			$base = $FURY->core->get_config_item('base_url');
-			$div = '<div class="profilePicTable">';
+			$config_vars = $FURY->core->get_config_item_array(array(
+				"base_url",
+				"default_theme"
+			));
+			
+			if(isset($config_vars['default_theme']) && $config_vars['default_theme']!=''):
+				$FURY->config->load($config_vars['default_theme'],TRUE);
+				$theme_vars = $FURY->core->get_config_item_array(array(
+					"blank_avatar"
+				),$config_vars['default_theme']);
+			endif;
+			
+			$base = $config_vars['base_url'];
 			
 			// Choose the avatar to show.
-			if($avatar){	
-				$path = $FURY->core->get_config_item('relative_path').'assets/images/avatars/'.$avatar; 
-				if(!file_exists($path)){
+			if($avatar){				
+				
+				if(!file_exists(ASSETS_PATH.'images'.DS.'avatars'.$avatar)){
 					$no_avatar = true;	
 				}
+				
 			}else{
 				$no_avatar = true;	
 			}
 			
-			if($no_avatar){
-				$path = $base.$FURY->core->get_config_item('blank_profile');
+			if($no_avatar===TRUE){
+				$path = $base.'assets'.DS.'images'.DS.$theme_vars['blank_avatar'];
 			}
 			
 			
-			$div.= '<img src="'.$path.'">';
-			$div.= '</div>';
+			$div = '<img src="'.$path.'">';
+			
 			return $div;
 		}
 	}
