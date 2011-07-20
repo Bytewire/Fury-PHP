@@ -4,6 +4,12 @@
 	// ! Development environment globals   
 	// =========== 
 	
+	echo $_SERVER['HTTP_HOST'];
+	
+	echo '<Br><Br>';
+	
+	print_r($_SERVER);
+	
 	// Decide whether in development mode or not.
 	
 	// =========== 
