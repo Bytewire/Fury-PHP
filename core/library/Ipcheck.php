@@ -2,7 +2,7 @@
 
 	if ( ! defined('ROOT')) exit('No direct script access allowed');
 	
-	class FURY_IP_Check{
+	class FURY_Ipcheck{
 	
 		var $offense_limit = 0;
 		var $ip_violate_message = '';
