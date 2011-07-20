@@ -1,14 +1,14 @@
 <?php
 	
 	// =========== 
-	// ! Development environment globals   
+	// ! Version   
 	// =========== 
 	
-	echo $_SERVER['HTTP_HOST'];
+	define('FURY_VERSION',	'1.0.0');	
 	
-	echo '<Br><Br>';
-	
-	print_r($_SERVER);
+	// =========== 
+	// ! Development environment globals   
+	// ===========
 	
 	// Decide whether in development mode or not.
 	
@@ -60,5 +60,5 @@
 	
 	# Require the bootstrap file		 
 	
-	require_once (ROOT . 'core' .DS. 'bootstrap.php');
+	//require_once (ROOT . 'core' .DS. 'bootstrap.php');
 	
