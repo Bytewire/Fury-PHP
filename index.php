@@ -52,7 +52,7 @@
 	            define('DEVELOPMENT_ENVIRONMENT' , 2);
 	            define('EXT', '.php');
 	            define('DS', DIRECTORY_SEPARATOR);
-	            define('ROOT', dirname(dirname(__FILE__)).'/http/');
+	            define('ROOT', dirname(dirname(__FILE__)).'/');
 	            define('SYS', 'core/');
 	            define('APPPATH','application');        	
 	        	break;
