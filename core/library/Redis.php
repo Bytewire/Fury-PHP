@@ -89,7 +89,7 @@ class FURY_Redis {
      */
     public function __call($name, $args)
     {	
-    	$args = array("AUTH",$this->config['password']);
+    	$args[] = array("AUTH",$this->config['password']);
         $cmd = $this->buildCommand($name, $args);
         $this->sendCommand($cmd);
 
