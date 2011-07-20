@@ -6,6 +6,12 @@
 	
 	define('FURY_VERSION',	'1.0.0');	
 	
+	echo $_SERVER['HTTP_HOST'];
+	
+	echo '<br><Br>';
+	
+	print_r($_SERVER);
+	
 	// =========== 
 	// ! Development environment globals   
 	// ===========
