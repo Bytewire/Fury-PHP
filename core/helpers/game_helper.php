@@ -12,7 +12,7 @@
 				$username = $user['username'];
 			}
 			
-			return anchor($base.'profile/player/'.$id,$username,array("class"=>"bold no_decor"));
+			return anchor($base.'profile/player/'.$id,$username,array("class"=>"bold no_decor profile_link"));
 		}
 	}
 	

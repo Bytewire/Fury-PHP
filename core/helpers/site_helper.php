@@ -27,6 +27,29 @@
    
    /**
    *
+   * Check to see if the current uri is the correct one 
+   */
+   
+   function is_active_page($value){
+   		$FURY =& get_instance();
+   		
+   		$string_to_match = explode(" ",$value);
+   		$string_to_match = strtolower($string_to_match[0]);
+   		
+   		$FURY->uri->_fetch_uri_string();
+   		$current_root = $FURY->uri->segment(1);
+   		   		
+   		if($current_root == $string_to_match):
+   			
+   			return true;
+   		
+   		endif;
+   		
+   		return false;
+   }
+   
+   /**
+   *
    * Allow all of the websites to take advantage of the shit now. 
    */
    

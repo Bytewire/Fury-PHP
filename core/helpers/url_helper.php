@@ -16,6 +16,7 @@ if ( ! function_exists('site_url'))
 	function site_url($uri = '')
 	{
 		$FURY =& get_instance();
+	
 		return $FURY->core->site_url($uri);
 	}
 }
@@ -111,13 +112,14 @@ if ( ! function_exists('index_page'))
  */
 if ( ! function_exists('anchor'))
 {
-	function anchor($uri = '', $title = '', $attributes = '')
+	function anchor($uri = '', $title = '', $attributes = '',$report = FALSE)
 	{
 		$title = (string) $title;
 
 		if ( ! is_array($uri))
 		{	
 			$site_url = ( ! preg_match('!^\w+://! i', $uri)) ? site_url($uri) : $uri;
+
 		}
 		else
 		{

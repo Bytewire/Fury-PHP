@@ -1,0 +1,2 @@
+[11-Jul-2011 15:17:52] PHP Notice:  Undefined index: invite in /Applications/MAMP/htdocs/boardwalk/cometchat/modules/chatrooms/chatrooms.php on line 389
+[11-Jul-2011 15:17:52] PHP Warning:  Invalid argument supplied for foreach() in /Applications/MAMP/htdocs/boardwalk/cometchat/modules/chatrooms/chatrooms.php on line 389

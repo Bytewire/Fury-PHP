@@ -6,3 +6,118 @@
 [21-Feb-2011 16:15:04] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /Applications/MAMP/htdocs/scshop/index.php:25) in /Applications/MAMP/htdocs/scshop/core/library/Session.php on line 20
 [21-Feb-2011 16:15:22] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /Applications/MAMP/htdocs/scshop/index.php:23) in /Applications/MAMP/htdocs/scshop/core/library/Session.php on line 20
 [20-Jul-2011 14:20:19] PHP Notice:  Use of undefined constant DEVELOPMENT_ENVIROMENT - assumed 'DEVELOPMENT_ENVIROMENT' in /Applications/MAMP/htdocs/boardwalk/application/config/config.php on line 153
+[20-Jul-2011 16:21:30] PHP Fatal error:  Uncaught exception 'RedisException' with message ' wrong number of arguments for 'get' command' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:163
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(96): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(506): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 163
+[20-Jul-2011 16:21:37] PHP Fatal error:  Uncaught exception 'RedisException' with message ' operation not permitted' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:162
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(95): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(506): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 162
+[20-Jul-2011 16:21:51] PHP Fatal error:  Uncaught exception 'RedisException' with message ' operation not permitted' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:160
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(95): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(506): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 160
+[20-Jul-2011 16:22:16] PHP Fatal error:  Uncaught exception 'RedisException' with message ' operation not permitted' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:162
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(95): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(506): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 162
+[20-Jul-2011 16:25:57] PHP Fatal error:  Uncaught exception 'RedisException' with message ' operation not permitted' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:162
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(95): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(506): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 162
+[20-Jul-2011 16:26:26] PHP Fatal error:  Uncaught exception 'RedisException' with message ' operation not permitted' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:162
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(95): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(416): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(506): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 162
+[20-Jul-2011 16:32:10] PHP Fatal error:  Uncaught exception 'RedisException' with message ' unknown command 'Auth*2'' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:171
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(95): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(417): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(417): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(507): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 171
+[20-Jul-2011 16:33:02] PHP Fatal error:  Uncaught exception 'RedisException' with message ' multi bulk protocol error' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:166
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(95): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(417): FURY_Redis->__call('get', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(417): FURY_Redis->get('hospital_count')
+#3 /Applications/MAMP/htdocs/boardwalk/application/model/gamecore.php(507): GameCore->getheaderdata()
+#4 /Applications/MAMP/htdocs/boardwalk/application/controller/main.php(21): GameCore->pageCore()
+#5 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(372): Main->__construct()
+#6 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#7 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 166
+[20-Jul-2011 16:36:47] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 3
+[20-Jul-2011 16:37:34] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 3
+[20-Jul-2011 16:37:59] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:39:55] PHP Fatal error:  Call to a member function get() on a non-object in /Applications/MAMP/htdocs/boardwalk/application/controller/world/usersonline.php on line 40
+[20-Jul-2011 16:46:50] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:49:06] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:49:51] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:50:13] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:50:46] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:50:55] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:53:18] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 5
+[20-Jul-2011 16:53:31] PHP Fatal error:  Unsupported operand types in /Applications/MAMP/htdocs/boardwalk/application/view/world/usersonline.php on line 3
+[20-Jul-2011 17:29:59] PHP Fatal error:  Uncaught exception 'RedisException' with message ' invalid password' in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php:169
+Stack trace:
+#0 /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php(96): FURY_Redis->readReply()
+#1 /Applications/MAMP/htdocs/boardwalk/application/controller/test.php(59): FURY_Redis->__call('set', Array)
+#2 /Applications/MAMP/htdocs/boardwalk/application/controller/test.php(59): FURY_Redis->set('bumbum', 'jimby')
+#3 [internal function]: Test->index()
+#4 /Applications/MAMP/htdocs/boardwalk/core/bootstrap.php(393): call_user_func_array(Array, Array)
+#5 /Applications/MAMP/htdocs/boardwalk/index.php(101): require_once('/Applications/M...')
+#6 {main}
+  thrown in /Applications/MAMP/htdocs/boardwalk/core/library/Redis.php on line 169
+[21-Jul-2011 09:56:15] PHP Fatal error:  Call to a member function auth() on a non-object in /Applications/MAMP/htdocs/boardwalk/application/controller/test.php on line 67
+[21-Jul-2011 16:40:06] PHP Fatal error:  Call to undefined function is_active_page() in /Applications/MAMP/htdocs/boardwalk/application/view/themes/980px_final/left_menu.php on line 12
+[21-Jul-2011 17:15:01] PHP Parse error:  syntax error, unexpected T_IF, expecting ',' or ';' in /Applications/MAMP/htdocs/boardwalk/core/helpers/site_helper.php on line 44
+[21-Jul-2011 17:15:21] PHP Parse error:  syntax error, unexpected T_VARIABLE in /Applications/MAMP/htdocs/boardwalk/core/helpers/site_helper.php on line 42
+[21-Jul-2011 17:22:56] PHP Parse error:  syntax error, unexpected ';' in /Applications/MAMP/htdocs/boardwalk/application/view/themes/980px_final/notification_area.php on line 6
