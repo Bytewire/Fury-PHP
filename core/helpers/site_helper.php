@@ -56,8 +56,8 @@
    function get_template_part($part,$array){
    	
 		$FURY =& get_instance();
-		$theme = $FURY->core->get_config_item('default_theme');
-		$fallback_theme = $FURY->core->get_config_item('fallback_theme');
+		$theme = $FURY->core->get_config_item('inside_default_theme');
+		$fallback_theme = $FURY->core->get_config_item('inside_fallback_theme');
 		
 		
 		/* set a base path */
@@ -108,7 +108,7 @@
    function get_image($image,$site_wide=false){
    
    		$FURY =& get_instance();
-		$config_vars = $FURY->core->get_config_item_array(array("default_theme","assets_url"));
+		$config_vars = $FURY->core->get_config_item_array(array("inside_default_theme","assets_url"));
 		
 		$loaded = false;
 		 
@@ -116,13 +116,13 @@
 		
 			$base_path = ASSETS_PATH.'themes'.DS;
 					
-			if(isset($config_vars['default_theme'])):
+			if(isset($config_vars['inside_default_theme'])):
 			
-				if(file_exists($base_path.$config_vars['default_theme'].DS.'images'.DS.$image)):
+				if(file_exists($base_path.$config_vars['inside_default_theme'].DS.'images'.DS.$image)):
 					
 					$loaded = true;
 					
-					return '<img src="'.$config_vars['assets_url'].'themes'.DS.$config_vars['default_theme'].DS.'images'.DS.$image.'">';
+					return '<img src="'.$config_vars['assets_url'].'themes'.DS.$config_vars['inside_default_theme'].DS.'images'.DS.$image.'">';
 					
 				endif;
 				

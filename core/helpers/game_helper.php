@@ -38,14 +38,14 @@
 			$FURY =& get_instance();
 			$config_vars = $FURY->core->get_config_item_array(array(
 				"base_url",
-				"default_theme"
+				"inside_default_theme"
 			));
 			
-			if(isset($config_vars['default_theme']) && $config_vars['default_theme']!=''):
-				$FURY->config->load($config_vars['default_theme'],TRUE);
+			if(isset($config_vars['inside_default_theme']) && $config_vars['inside_default_theme']!=''):
+				$FURY->config->load($config_vars['inside_default_theme'],TRUE);
 				$theme_vars = $FURY->core->get_config_item_array(array(
 					"blank_avatar"
-				),$config_vars['default_theme']);
+				),$config_vars['inside_default_theme']);
 			endif;
 			
 			$base = $config_vars['base_url'];
