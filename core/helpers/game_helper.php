@@ -52,9 +52,9 @@
 			
 			// Choose the avatar to show.
 			if($avatar){				
-				
-				if(!file_exists(ASSETS_PATH.'images'.DS.'avatars'.$avatar)){
-					$no_avatar = true;	
+
+				if(!file_exists(ROOT.'uploads'.DS.'avatars'.DS.$avatar)){
+					$no_avatar = true;
 				}
 				
 			}else{
@@ -63,6 +63,8 @@
 			
 			if($no_avatar===TRUE){
 				$path = $base.'assets'.DS.'images'.DS.$theme_vars['blank_avatar'];
+			} else {
+				$path = $base.'uploads'.DS.'avatars'.DS.$avatar;
 			}
 			
 			

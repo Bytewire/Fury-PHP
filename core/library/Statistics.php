@@ -54,6 +54,70 @@
 			}
 		}
 
+		function firstDayOfLastMonth(){
+			$firstDay = strtotime("first day of last month");
+			$theDate = date("F Y",$firstDay);
+			$finalDate = strtotime($theDate);
+			return $finalDate;
+		}
+		
+		function lastDayOfLastMonth(){
+			$firstDay = strtotime("first day of this month");
+			$theDate = date("F Y",$firstDay);
+			$finalDate = (strtotime($theDate))-1;
+			return $finalDate;
+		}
+		
+		function getStat($stat,$playerid,$type=false){
+			/** Type Options
+			
+				0 - Total
+				1 - Last Week (time - 7 days)
+				2 - Current Week
+				3 - Last Month
+				4 - This Month
+			**/
+		
+			if($this->FURY->validation->checkdata($stat,5)){
+				$checkstat = $this->FURY->db->query("SELECT * FROM character_stat_types WHERE stat = '$stat'")->row();
+				if($checkstat){
+					if($this->FURY->validation->is_numeric($playerid)){
+						$checkuser = $this->FURY->db->query("SELECT * FROM characters WHERE id = '$playerid'")->row();
+						if($checkuser){	
+							if($this->FURY->validation->is_numeric($type) || empty($type)){
+								if(empty($type)){ $type = 0; }
+								$time = time();
+								switch ($type){
+									case 0:
+										$current_total = $this->FURY->db->query("SELECT SUM(value) as total FROM character_stats WHERE userid = '$playerid' AND stat = '$stat'")->get();
+										$remaining_total = $this->FURY->db->query("SELECT SUM($stat) as total FROM character_stats_monthly WHERE userid = '$playerid'")->get();
+										$total = $current_total+$remaining_total;
+										break;
+									case 1:
+										$startTime = time()-604800;
+										$total = $this->FURY->db->query("SELECT SUM(value) as total FROM character_stats WHERE userid = '$playerid' AND stat = '$stat' AND date >= '$startTime' AND date <= '$time'")->get();
+										break;
+									case 2:
+										$startTime = strtotime('Last Monday');
+										$total = $this->FURY->db->query("SELECT SUM(value) as total FROM character_stats WHERE userid = '$playerid' AND stat = '$stat' AND date >= '$startTime' AND date <= '$time'")->get();
+										break;
+									case 3:
+										$startTime = firstDayOfLastMonth();
+										$endTime = lastDayOfLastMonth();
+										$total = $this->FURY->db->query("SELECT $stat as total FROM character_stats_monthly WHERE userid = '$playerid' AND start_month >= '$startTime' AND end_month <= '$endTime'")->get();
+										break;
+									case 4:
+										$total = $this->FURY->db->query("SELECT SUM(value) as total FROM character_stats WHERE userid = '$playerid' AND stat = '$stat'")->get();									
+										break;
+								}
+							}
+							return $total;
+						}
+					}
+				}
+			}
+		}
+		
 		function site($stat_data=array(),$stat_value=''){
 			if(is_string($stat_data)){    
             	$stat_data = array($stat_data => $stat_value);

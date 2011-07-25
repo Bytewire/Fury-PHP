@@ -2695,3 +2695,6 @@
 [10-May-2011 14:50:15] PHP Notice:  Undefined index: link in /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php on line 89
 [10-May-2011 14:50:15] PHP Notice:  Undefined index: avatar in /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php on line 90
 [10-May-2011 14:50:15] PHP Warning:  Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php:89) in /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php on line 99
+[18-Jul-2011 11:54:13] PHP Notice:  Undefined index:  link in /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php on line 89
+[18-Jul-2011 11:54:13] PHP Notice:  Undefined index:  avatar in /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php on line 90
+[18-Jul-2011 11:54:13] PHP Warning:  Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php:89) in /Applications/MAMP/htdocs/boardwalk/cometchat/cometchat_getid.php on line 99
