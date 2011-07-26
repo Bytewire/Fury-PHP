@@ -175,4 +175,7 @@ Stack trace:
 [25-Jul-2011 16:40:35] PHP Fatal error:  Call to a member function outsidechecker() on a non-object in /Applications/MAMP/htdocs/boardwalk/application/controller/about.php on line 8
 [25-Jul-2011 16:41:00] PHP Fatal error:  Call to undefined function form_open_this() in /Applications/MAMP/htdocs/boardwalk/application/view/home/signup.php on line 5
 [25-Jul-2011 16:58:09] PHP Fatal error:  Call to undefined function anchor() in /Applications/MAMP/htdocs/boardwalk/application/view/widgets/updates.php on line 44
-[25-Jul-2011 17:04:51] PHP Parse error:  syntax error, unexpected '*' in /Applications/MAMP/htdocs/boardwalk/application/view/widgets/updates_homepage.php on line 47
+[25-Jul-2011 17:04:51] PHP Parse error:  syntax error, unexpected '*' in /Applications/MAMP/htdocs/boardwalk/application/view/widgets/updates_homepage.php on line 47[26-Jul-2011 14:19:00] PHP Parse error:  syntax error, unexpected T_ELSE, expecting T_FUNCTION in /Applications/MAMP/htdocs/boardwalk/application/controller/signup.php on line 334
+[26-Jul-2011 14:19:03] PHP Parse error:  syntax error, unexpected T_ELSE, expecting T_FUNCTION in /Applications/MAMP/htdocs/boardwalk/application/controller/signup.php on line 334
+[26-Jul-2011 15:32:49] PHP Fatal error:  Call to undefined method Signup::message_box() in /Applications/MAMP/htdocs/boardwalk/application/controller/signup.php on line 248
+[26-Jul-2011 15:33:10] PHP Parse error:  syntax error, unexpected '}' in /Applications/MAMP/htdocs/boardwalk/application/view/home/signup.php on line 5
