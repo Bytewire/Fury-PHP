@@ -364,4 +364,28 @@
 	
 			return $FURY->$object;
 		}
-	}	
+	}
+	
+	// =========== 
+	// ! Message box   
+	// =========== 
+
+	if ( ! function_exists('message_box')){
+		function message_box($message, $type = 0, $outside = false){
+			if(!$outside){
+			
+			} else {
+				switch ($type) {
+				    case 0:
+				        echo "<div class='message_box'>".$message."</div>";
+				        break;
+				    case 1:
+				        echo "<div class='message_box success'>".$message."</div>";
+				        break;
+				    case 2:
+				        echo "<div class='message_box error'>".$message."</div>";
+				        break;
+				}				
+			}
+		}
+	}		
