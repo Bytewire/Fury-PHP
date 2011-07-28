@@ -9,9 +9,11 @@
 	
 	$uri = $_SERVER['REQUEST_URI'];
 		
+/*
 	if($uri!="/boardwalk/comingsoon"){
 		header("Location: http://www.boardwalkmafia.com/comingsoon");
 	}
+*/
 
 	// =========== 
 	// ! FURY Version   
