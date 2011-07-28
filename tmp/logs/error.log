@@ -15,3 +15,4 @@
 [28-Jul-2011 14:41:04] PHP Fatal error:  Cannot redeclare class Friends in /Applications/MAMP/htdocs/boardwalk/application/model/friends.php on line 9
 [28-Jul-2011 14:43:48] PHP Fatal error:  Call to undefined function errorbox() in /Applications/MAMP/htdocs/boardwalk/application/view/friends.php on line 3
 [28-Jul-2011 16:11:19] PHP Fatal error:  Call to a member function _get() on a non-object in /Applications/MAMP/htdocs/boardwalk/core/library/Logging.php on line 162
+[28-Jul-2011 17:27:00] PHP Parse error:  syntax error, unexpected T_ENDIF in /Applications/MAMP/htdocs/boardwalk/application/model/friends_model.php on line 188
