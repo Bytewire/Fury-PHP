@@ -1,0 +1,7 @@
+[27-Jul-2011 10:12:40] PHP Parse error:  syntax error, unexpected '{' in /Applications/MAMP/htdocs/boardwalk/application/controller/comingsoon.php on line 22
+[28-Jul-2011 15:26:15] PHP Fatal error:  Call to a member function check_anti() on a non-object in /Applications/MAMP/htdocs/boardwalk/application/controller/contact.php on line 33
+[28-Jul-2011 15:45:23] PHP Fatal error:  Call to a member function _get() on a non-object in /Applications/MAMP/htdocs/boardwalk/core/library/Logging.php on line 162
+[28-Jul-2011 15:51:31] PHP Fatal error:  Call to a member function check_anti() on a non-object in /Applications/MAMP/htdocs/boardwalk/application/controller/contact.php on line 39
+[28-Jul-2011 15:53:10] PHP Fatal error:  Call to a member function check_anti() on a non-object in /Applications/MAMP/htdocs/boardwalk/application/controller/contact.php on line 39
+[28-Jul-2011 15:57:59] PHP Fatal error:  Call to a member function _get() on a non-object in /Applications/MAMP/htdocs/boardwalk/core/library/Logging.php on line 162
+[28-Jul-2011 16:03:56] PHP Fatal error:  Call to a member function _get() on a non-object in /Applications/MAMP/htdocs/boardwalk/core/library/Logging.php on line 162
