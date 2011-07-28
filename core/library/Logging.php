@@ -159,7 +159,7 @@
 			
 			// Record the log into a new file.
 			
-			$userid = $this->session->_get('id');
+			$userid = $this->FURY->session->_get('id');
 			
 			if(!isset($userid)){
 				$userid = 0;

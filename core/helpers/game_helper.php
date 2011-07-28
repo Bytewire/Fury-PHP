@@ -32,8 +32,17 @@
 	}
 	
 	if(!function_exists('avatar')){
-		function avatar($avatar){
-		
+		function avatar($avatar,$options=array()){
+			
+			if(isset($options['height'])){
+				$height = ($options['height']) ? $options['height'] : 0;
+				$height_add = ' style="height:'.$options['height'].'px;"';
+			}
+			
+			if(!isset($height_add)){
+				$height_add = '';
+			}
+			
 			$no_avatar = false;
 			$FURY =& get_instance();
 			$config_vars = $FURY->core->get_config_item_array(array(
@@ -68,7 +77,7 @@
 			}
 			
 			
-			$div = '<img src="'.$path.'">';
+			$div = '<img src="'.$path.'"'.$height_add.'>';
 			
 			return $div;
 		}

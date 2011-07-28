@@ -53,6 +53,7 @@ class FURY_Postmark {
     function FURY_Postmark($params = array())
     {
         $this->FURY =& get_instance();
+        $this->FURY->load->library('session');
        	$this->FURY->config->load('postmark',TRUE);
        	$this->FURY->load->library('Logging');
         
@@ -482,6 +483,7 @@ class FURY_Postmark {
 		
 		$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		
+		
 		$this->FURY->logging->mail_log('POSTMARK JSON: ' . $encoded_data . "\nHeaders: \n\t" . implode("\n\t", $headers) . "\nReturn:\n$return\n\nPOSTMARK http code:" . $httpCode,$this->FURY->session->_get('id'));
 		
 		if (curl_error($ch) != '') {
@@ -490,7 +492,7 @@ class FURY_Postmark {
 		
 		if (intval($httpCode / 100) != 2) {
 			$message = json_decode($return)->Message;
-			
+						
 			$this->FURY->logging->mail_log("Error while mailing. Postmark returned HTTP code " . $httpCode . " with message ".$message,$this->FURY->session->_get('id'));
 			
 			show_error('Error while mailing. Postmark returned HTTP code ' . $httpCode . ' with message "'.$message.'"');

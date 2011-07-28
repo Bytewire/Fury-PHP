@@ -150,7 +150,7 @@ $fixFlash = '0';			// Set to yes, if Adobe Flash animations/ads are appearing on
 
 /* THEME START */
 
-$theme = 'dark';
+$theme = 'boardwalk';
 
 /* THEME END */
 
