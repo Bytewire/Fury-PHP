@@ -117,10 +117,15 @@
 			$base_path = ASSETS_PATH.'themes'.DS;
 					
 			if(isset($config_vars['inside_default_theme'])):
-			
+				
+				echo $base_path.$config_vars['inside_default_theme'].DS.'images'.DS.$image;
+				
 				if(file_exists($base_path.$config_vars['inside_default_theme'].DS.'images'.DS.$image)):
 					
 					$loaded = true;
+					
+					echo '<br>';
+					echo $config_vars['assets_url'].'themes'.DS.$config_vars['inside_default_theme'].DS.'images'.DS.$image;
 					
 					return '<img src="'.$config_vars['assets_url'].'themes'.DS.$config_vars['inside_default_theme'].DS.'images'.DS.$image.'">';
 					
