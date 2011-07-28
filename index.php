@@ -4,16 +4,12 @@
 *
 *  Welcome to FURY, a PHP, in Development, Game Framework.
 */	
-
-	print_r($_SERVER);
 	
 	$uri = $_SERVER['REQUEST_URI'];
 		
-/*
-	if($uri!="/boardwalk/comingsoon"){
+	if($uri!="/comingsoon"){
 		header("Location: http://www.boardwalkmafia.com/comingsoon");
 	}
-*/
 
 	// =========== 
 	// ! FURY Version   
