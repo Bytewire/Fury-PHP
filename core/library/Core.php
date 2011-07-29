@@ -67,13 +67,13 @@
 						}else{
 						
 							if(is_array($v)){
-														
+																																					
 								if(isset($v['index']) && $v['index']!=''){
-								
-									$pref[$v['index']][$v['item']] = (isset($this->config[$v['index']][$v['item']])) ?  $this->config[$v['index']][$v['item']] : '';
+																		
+									$pref[$v['index']][$v['item']] = (isset($this->config[$v['index']][$v['item']])) ?  $this->config[$v['index']][$v['item']] : '';					
 								
 								}else{
-								
+																		
 									$pref[$v] = (isset($this->config[$v])) ? $this->config[$v] : '';
 									
 								}
