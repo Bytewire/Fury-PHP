@@ -1,15 +1,9 @@
 RewriteEngine On
 
-#RewriteRule ^assets/(.*)$ /sites/bytewire-streetcrime/vhosts/shop.street-crime.com/http/application/assets/$1 [L,NC]
-RewriteCond %{REQUEST_URI} ^/assets
-RewriteRule ^(.*)$ /application/$1 [NC]
-
-# This will fix up wikimedia images fed via index.php
-RewriteCond %{REQUEST_URI} gangster-game-wiki/index.php
-RewriteRule ^(.*)$ http://10.50.0.46/$1 [P,L]
+RewriteRule ^assets/(.*)$ /sites/bytewire-boardwalk/www/vhosts/beta.boardwalkmafia.com/http/application/assets/$1 [L,NC]
 
 RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|css|js|ico|swf)$
-RewriteRule ^(.*)$ http://10.50.0.46/$1 [P,L]
+RewriteRule ^(.*)$ http://10.50.0.226/$1 [P,L]
 
 # http://httpd.apache.org/docs/2.0/mod/mod_expires.html
 ExpiresActive On
