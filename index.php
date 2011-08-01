@@ -5,11 +5,13 @@
 *  Welcome to FURY, a PHP, in Development, Game Framework.
 */	
 	
+/*
 	$uri = $_SERVER['REQUEST_URI'];
 		
 	if($uri!="/comingsoon"){
 		header("Location: http://www.boardwalkmafia.com/comingsoon");
 	}
+*/
 
 	// =========== 
 	// ! FURY Version   
@@ -53,7 +55,7 @@
 	          
 	        /* Stage */  
 	            
-	        case "87.124.85.10":
+	        case "beta.boardwalkmafia.com":
 	            define('DEVELOPMENT_ENVIRONMENT' , 2);
 	            define('EXT', '.php');
 	            define('DS', DIRECTORY_SEPARATOR);
