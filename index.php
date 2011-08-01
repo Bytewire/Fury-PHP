@@ -6,10 +6,10 @@
 */	
 	
 	$uri = $_SERVER['REQUEST_URI'];
-		
+	/*		
 	if($uri!="/comingsoon"){
 		header("Location: http://www.boardwalkmafia.com/comingsoon");
-	}
+	}*/
 
 	// =========== 
 	// ! FURY Version   
